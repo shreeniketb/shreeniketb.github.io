@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Shreeniket Bhat — IE @ Georgia Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07101f;--bg2:#0a1628;--bg3:#0e1d35;
+  --line:rgba(255,255,255,0.08);--line-hi:rgba(0,194,230,0.28);
+  --acc:#00c2e6;--acc-d:rgba(0,194,230,0.10);
+  --t:#eaf2fc;--tm:#b8d0e8;--td:#7090b0;
+  --mono:'DM Mono',monospace;--sans:'DM Sans',sans-serif;
+  --disp:'Syne',sans-serif;--big:'Bebas Neue',cursive;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font-family:var(--sans);font-size:16px;line-height:1.65;overflow-x:hidden}
+::selection{background:var(--acc);color:var(--bg)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--acc)}
+
+/* UTIL */
+.mono{font-family:var(--mono)}
+.lbl{font-family:var(--mono);font-size:.67rem;letter-spacing:.2em;color:var(--acc);text-transform:uppercase}
+.sr{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.sr.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;gap:18px;padding:0 52px;height:60px;background:rgba(7,16,31,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;gap:7px;text-decoration:none;flex-shrink:0}
+.nav-bolt{color:var(--acc);display:flex;align-items:center}
+.nav-bolt svg{width:14px;height:18px}
+.nav-logo-txt{font-family:var(--big);font-size:1.28rem;letter-spacing:.12em;color:var(--t)}
+.nav-logo-txt span{color:var(--acc)}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;color:var(--td);text-decoration:none;text-transform:uppercase;transition:color .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--t)}
+.nav-socials{display:flex;align-items:center;gap:12px;margin-left:auto}
+.nav-icon{display:flex;align-items:center;color:var(--td);text-decoration:none;transition:color .2s}
+.nav-icon:hover{color:var(--acc)}
+.nav-icon svg{width:16px;height:16px}
+.nav-cta{font-family:var(--mono);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--acc);padding:6px 16px;border:1px solid var(--acc);white-space:nowrap;transition:all .25s;flex-shrink:0}
+.nav-cta:hover{background:var(--acc);color:var(--bg)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--tm)}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 340px;align-items:center;padding:0 52px;padding-top:60px;gap:52px;position:relative;overflow:hidden}
+canvas#c{position:absolute;inset:0;width:100%;height:100%;opacity:.28;pointer-events:none}
+.hero-l{position:relative;z-index:2}
+.hero-ey{font-family:var(--mono);font-size:.69rem;letter-spacing:.2em;color:var(--td);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:10px;opacity:0;animation:rise .7s cubic-bezier(.16,1,.3,1) forwards .1s}
+.hero-ey::before{content:'';display:inline-block;width:26px;height:1px;background:var(--acc)}
+.hero-name{font-family:var(--big);margin-bottom:24px;opacity:0;animation:rise .85s cubic-bezier(.16,1,.3,1) forwards .25s}
+.hn-top{display:block;font-size:clamp(3.8rem,8.5vw,9rem);color:var(--t);letter-spacing:.02em;line-height:.92}
+.hn-bot{display:block;font-size:clamp(3.8rem,8.5vw,9rem);color:transparent;-webkit-text-stroke:2px var(--acc);letter-spacing:.02em;line-height:.92;paint-order:stroke fill}
+.pp video,.pp iframe,.mi video{width:100%;height:100%;object-fit:cover;display:block;border:0}
+.mi iframe{width:100%;height:100%;border:0;display:block}
+.hero-p{font-size:clamp(.93rem,1.4vw,1.07rem);color:var(--tm);max-width:485px;line-height:1.78;margin-bottom:36px;opacity:0;animation:rise .85s cubic-bezier(.16,1,.3,1) forwards .45s}
+.hero-p strong{color:var(--t);font-weight:500}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;opacity:0;animation:rise .7s cubic-bezier(.16,1,.3,1) forwards .65s}
+.bs{padding:12px 26px;background:var(--acc);color:var(--bg);font-family:var(--mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:all .25s;display:inline-block;white-space:nowrap}
+.bs:hover{background:#fff;transform:translateY(-2px)}
+.bo{padding:12px 26px;background:transparent;color:var(--tm);font-family:var(--mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border:1px solid var(--line);transition:all .25s;display:inline-block;white-space:nowrap}
+.bo:hover{border-color:var(--tm);color:var(--t)}
+.hero-r{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;opacity:0;animation:rise 1s cubic-bezier(.16,1,.3,1) forwards .5s}
+.hpf{position:relative;width:100%;max-width:280px}
+.hpf::before{content:'';position:absolute;top:13px;left:13px;right:-13px;bottom:-13px;border:1px solid rgba(0,194,230,.22);pointer-events:none}
+.hpf::after{content:'';position:absolute;top:0;left:-17px;width:2px;height:55%;background:linear-gradient(180deg,var(--acc),transparent)}
+.hpf img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;display:block;filter:grayscale(8%)}
+.hero-strip{position:absolute;bottom:0;left:0;right:0;display:flex;border-top:1px solid var(--line);z-index:2;opacity:0;animation:rise .7s ease forwards 1.1s}
+.sc{flex:1;display:flex;align-items:center;gap:12px;padding:14px 52px;border-right:1px solid var(--line)}
+.sc:last-child{border-right:none}
+.sn{font-family:var(--big);font-size:1.75rem;color:var(--acc);line-height:1}
+.sl{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--td);text-transform:uppercase;line-height:1.45}
+
+/* SECTIONS */
+.section{padding:90px 52px;border-top:1px solid var(--line)}
+.section.alt{background:var(--bg2)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px}
+.sec-title{font-family:var(--disp);font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;color:var(--t);line-height:1.1;margin-top:9px}
+.sec-num{font-family:var(--big);font-size:3.6rem;color:rgba(255,255,255,.05);line-height:1;user-select:none;flex-shrink:0}
+
+/* ABOUT */
+.ag{display:grid;grid-template-columns:1fr 320px;gap:64px;align-items:start}
+.ab p{font-size:.94rem;color:var(--tm);line-height:1.82;margin-bottom:16px}
+.ab p strong{color:var(--t);font-weight:500}
+.af{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:28px}
+.af-c{background:var(--bg2);padding:12px 16px}
+.af-l{font-family:var(--mono);font-size:.58rem;letter-spacing:.16em;color:var(--td);text-transform:uppercase;margin-bottom:3px}
+.af-v{font-size:.83rem;color:var(--t)}
+.aph{position:relative;margin-bottom:20px}
+.aph::after{content:'';position:absolute;bottom:-9px;right:-9px;width:62px;height:62px;border-right:2px solid rgba(0,194,230,.28);border-bottom:2px solid rgba(0,194,230,.28)}
+.aph img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;display:block;filter:grayscale(8%)}
+.cr-list{display:flex;flex-direction:column;gap:6px}
+.cr-item{display:flex;align-items:flex-start;gap:10px;padding:9px 12px;background:var(--bg3);border-left:2px solid transparent;transition:border-color .2s;font-size:.77rem;color:var(--tm);line-height:1.45}
+.cr-item:hover{border-left-color:var(--acc)}
+.cr-item strong{color:var(--t);font-weight:500}
+.cri{font-size:.92rem;flex-shrink:0;margin-top:1px}
+
+/* PROJECTS */
+.pg{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.pc{background:var(--bg);display:flex;flex-direction:column;cursor:pointer;transition:background .3s;position:relative}
+.section.alt .pc{background:var(--bg2)}
+.pc:hover{background:var(--bg3)}
+.pc::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--acc),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.pc:hover::before{transform:scaleX(1)}
+.pp{width:100%;height:168px;background:var(--bg3);position:relative;overflow:hidden;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.pp img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.pc:hover .pp img{transform:scale(1.04)}
+.pp-ph{font-family:var(--mono);font-size:.58rem;letter-spacing:.12em;color:var(--td);text-transform:uppercase;text-align:center;padding:0 14px}
+.pb2{padding:26px 26px 22px;flex:1;display:flex;flex-direction:column}
+.pi{font-family:var(--mono);font-size:.57rem;letter-spacing:.18em;color:var(--td);text-transform:uppercase;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+.pi::after{content:'';flex:1;height:1px;background:var(--line)}
+.pt{font-family:var(--disp);font-size:1rem;font-weight:700;color:var(--t);line-height:1.35;margin-bottom:17px}
+.prows{display:flex;flex-direction:column;gap:2px;margin-bottom:16px}
+.pr{display:grid;grid-template-columns:70px 1fr;gap:9px;padding:9px 10px;align-items:start}
+.pr.pb{background:rgba(255,255,255,.025)}
+.pr.ro{background:rgba(255,255,255,.015)}
+.pr.re{background:rgba(0,194,230,.07);border-left:2px solid rgba(0,194,230,.45)}
+.rl{font-family:var(--mono);font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;padding-top:2px;font-weight:500}
+.pr.pb .rl{color:var(--td)}
+.pr.ro .rl{color:#7abfcc}
+.pr.re .rl{color:var(--acc)}
+.rv{font-size:.8rem;line-height:1.6;color:var(--tm)}
+.pr.re .rv{color:var(--t);font-weight:500}
+.ptools{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto}
+.ptag{font-family:var(--mono);font-size:.56rem;letter-spacing:.07em;color:var(--td);padding:2px 7px;border:1px solid var(--line);transition:all .2s}
+.pc:hover .ptag{color:var(--acc);border-color:var(--line-hi)}
+.phint{margin-top:13px;font-family:var(--mono);font-size:.57rem;letter-spacing:.12em;color:var(--td);text-transform:uppercase;transition:color .2s}
+.pc:hover .phint{color:var(--acc)}
+
+/* SEE MORE */
+.smw{margin-top:42px;text-align:center}
+.btn-sm{display:inline-flex;align-items:center;gap:8px;padding:11px 28px;border:1px solid var(--line);background:transparent;color:var(--tm);font-family:var(--mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .25s}
+.btn-sm:hover{border-color:var(--acc);color:var(--acc)}
+#ep{display:none;margin-top:1px}
+#ep.open{display:block}
+.eg{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.ec{background:var(--bg);padding:24px 22px;cursor:pointer;transition:background .25s}
+.section.alt .ec{background:var(--bg2)}
+.ec:hover{background:var(--bg3)}
+.en{font-family:var(--mono);font-size:.56rem;letter-spacing:.15em;color:var(--td);text-transform:uppercase;margin-bottom:8px}
+.et{font-family:var(--disp);font-size:.87rem;font-weight:700;color:var(--t);line-height:1.35;margin-bottom:6px}
+.ed{font-size:.76rem;color:var(--tm);line-height:1.6;margin-bottom:8px}
+.eh{font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;color:var(--td);text-transform:uppercase;transition:color .2s}
+.ec:hover .eh{color:var(--acc)}
+
+/* EXPERIENCE */
+.el{border-top:1px solid var(--line)}
+.ei{display:grid;grid-template-columns:185px 1fr;gap:42px;padding:34px 0;border-bottom:1px solid var(--line)}
+.e-date{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--acc);text-transform:uppercase;margin-bottom:4px}
+.e-loc{font-size:.74rem;color:var(--td)}
+.e-role{font-family:var(--disp);font-size:1rem;font-weight:700;color:var(--t);margin-bottom:3px;line-height:1.3}
+.e-co{font-family:var(--mono);font-size:.67rem;color:var(--acc);letter-spacing:.04em;margin-bottom:10px}
+.e-desc{font-size:.86rem;color:var(--tm);line-height:1.75;margin-bottom:12px}
+.tr{display:flex;flex-wrap:wrap;gap:6px}
+.tg{font-family:var(--mono);font-size:.58rem;letter-spacing:.07em;color:var(--td);padding:3px 8px;background:var(--bg3);border:1px solid var(--line);transition:all .2s}
+.tg:hover{color:var(--acc);border-color:var(--line-hi)}
+
+/* EDUCATION */
+.edu-l{border-top:1px solid var(--line)}
+.edu-i{display:grid;grid-template-columns:185px 1fr auto;gap:42px;padding:26px 0;border-bottom:1px solid var(--line);align-items:start}
+.edu-y{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;color:var(--td);text-transform:uppercase;padding-top:3px}
+.edu-s{font-family:var(--disp);font-size:.97rem;font-weight:700;color:var(--t);margin-bottom:3px}
+.edu-d{font-size:.8rem;color:var(--tm);margin-bottom:5px}
+.edu-n{font-size:.74rem;color:var(--td);line-height:1.55}
+.edu-b{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--acc);padding:4px 10px;border:1px solid var(--line-hi);text-transform:uppercase;white-space:nowrap;align-self:start}
+
+/* SKILLS */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:36px}
+.sk-t{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:var(--acc);text-transform:uppercase;margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.sk-l{list-style:none;display:flex;flex-direction:column;gap:7px}
+.sk-l li{font-size:.82rem;color:var(--tm);display:flex;align-items:center;gap:8px;transition:color .2s}
+.sk-l li:hover{color:var(--t)}
+.sk-l li::before{content:'';width:4px;height:4px;background:var(--acc);border-radius:50%;flex-shrink:0;opacity:.5}
+.cs{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:48px}
+.cc{background:var(--bg);padding:22px 20px;transition:background .25s}
+.section.alt .cc{background:var(--bg2)}
+.cc:hover{background:var(--bg3)}
+.cc-l{font-family:var(--mono);font-size:.56rem;letter-spacing:.15em;color:var(--acc);text-transform:uppercase;margin-bottom:5px}
+.cc-t{font-family:var(--disp);font-size:.85rem;font-weight:700;color:var(--t);margin-bottom:3px;line-height:1.3}
+.cc-s{font-size:.71rem;color:var(--td)}
+
+/* LOGBOOK */
+.li-intro{max-width:500px;font-size:.91rem;color:var(--tm);line-height:1.75;margin-bottom:40px}
+.ll{border-top:1px solid var(--line)}
+.le{display:grid;grid-template-columns:140px 1fr;gap:36px;padding:22px 0;border-bottom:1px solid var(--line)}
+.le-d{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--td);text-transform:uppercase;padding-top:2px}
+.le-t{font-family:var(--disp);font-size:.89rem;font-weight:700;color:var(--t);margin-bottom:5px}
+.le-b{font-size:.8rem;color:var(--tm);line-height:1.65}
+.le-tags{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
+.le-tag{font-family:var(--mono);font-size:.54rem;letter-spacing:.1em;color:var(--acc);padding:2px 7px;border:1px solid var(--line-hi);text-transform:uppercase}
+
+/* CONTACT */
+.ci2{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.ch{font-family:var(--big);font-size:clamp(2.7rem,5vw,4.6rem);line-height:1.0;color:var(--t);margin-bottom:16px}
+.ch em{font-style:normal;display:block;font-family:var(--big);font-size:clamp(2.7rem,5vw,4.6rem);color:transparent;-webkit-text-stroke:1.5px rgba(0,194,230,.6);paint-order:stroke fill;line-height:1}
+.cs2{font-size:.91rem;color:var(--tm);line-height:1.72;max-width:360px}
+.cl-list{display:flex;flex-direction:column;gap:8px}
+.cl{display:flex;align-items:center;gap:14px;padding:14px 18px;border:1px solid var(--line);text-decoration:none;background:var(--bg3);transition:all .25s}
+.cl:hover{border-color:var(--line-hi);transform:translateX(4px)}
+.cl-ic{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--acc-d);flex-shrink:0;color:var(--acc)}
+.cl-ic svg{width:14px;height:14px}
+.cl-lb{font-family:var(--mono);font-size:.56rem;letter-spacing:.14em;color:var(--td);text-transform:uppercase;margin-bottom:2px}
+.cl-v{font-size:.83rem;color:var(--t)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:18px 52px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fl{font-family:var(--big);font-size:.98rem;letter-spacing:.15em;color:var(--td)}
+.ft{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:var(--td);text-transform:uppercase}
+
+/* MODAL */
+.mo{position:fixed;inset:0;background:rgba(4,10,22,.93);backdrop-filter:blur(8px);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px}
+.mo.open{display:flex}
+.mb{background:var(--bg2);border:1px solid var(--line);max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative}
+.mc{position:absolute;top:13px;right:15px;background:none;border:none;color:var(--td);font-size:1.4rem;cursor:pointer;transition:color .2s;line-height:1;z-index:10}
+.mc:hover{color:var(--t)}
+.mi{width:100%;height:200px;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden}
+.mi img{width:100%;height:100%;object-fit:cover;display:block}
+.mi-ph{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--td);text-transform:uppercase;text-align:center}
+.md{padding:32px 36px 36px}
+.m-cat{font-family:var(--mono);font-size:.58rem;letter-spacing:.18em;color:var(--acc);text-transform:uppercase;margin-bottom:8px}
+.m-tit{font-family:var(--disp);font-size:1.3rem;font-weight:700;color:var(--t);line-height:1.25;margin-bottom:20px}
+.mr2{display:flex;flex-direction:column;gap:2px;margin-bottom:20px}
+.mrw{display:grid;grid-template-columns:82px 1fr;gap:13px;padding:11px 12px;align-items:start}
+.mrw.pb{background:rgba(255,255,255,.025)}
+.mrw.ro{background:rgba(255,255,255,.015)}
+.mrw.re{background:rgba(0,194,230,.07);border-left:2px solid rgba(0,194,230,.45)}
+.mrl{font-family:var(--mono);font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;padding-top:2px;font-weight:500}
+.mrw.pb .mrl{color:var(--td)}
+.mrw.ro .mrl{color:#7abfcc}
+.mrw.re .mrl{color:var(--acc)}
+.mrv{font-size:.83rem;color:var(--tm);line-height:1.65}
+.mrw.re .mrv{color:var(--t);font-weight:500}
+.m-tools{display:flex;flex-wrap:wrap;gap:6px}
+.mtool{font-family:var(--mono);font-size:.59rem;letter-spacing:.08em;color:var(--acc);padding:3px 9px;border:1px solid var(--line-hi)}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  nav,.section,footer,#hero{padding-left:30px;padding-right:30px}
+  #hero{grid-template-columns:1fr;padding-top:74px;padding-bottom:74px;gap:0}
+  .hero-r{display:none}
+  .sc{padding:12px 30px}
+  .ag{grid-template-columns:1fr}
+  .sg{grid-template-columns:repeat(2,1fr)}
+  .cs{grid-template-columns:repeat(2,1fr)}
+  .eg{grid-template-columns:repeat(2,1fr)}
+  .edu-i{grid-template-columns:150px 1fr;gap:20px}
+  .edu-i .edu-b{display:none}
+  .ci2{grid-template-columns:1fr;gap:36px}
+  .nav-links{gap:16px}
+}
+@media(max-width:768px){
+  nav{padding:0 16px}
+  .nav-links,.nav-socials,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .section,footer{padding:60px 16px}
+  #hero{padding:78px 16px 76px}
+  .hero-strip{display:none}
+  .pg,.eg{grid-template-columns:1fr}
+  .ei{grid-template-columns:1fr;gap:4px}
+  .edu-i{grid-template-columns:1fr;gap:3px}
+  .le{grid-template-columns:1fr;gap:3px}
+  .sg{grid-template-columns:1fr 1fr}
+  .cs{grid-template-columns:1fr}
+  .sec-num{display:none}
+  .md{padding:20px 18px 24px}
+}
+
+/* ── Slideshow ───────────────────────────────────────────*/
+.pp{position:relative;overflow:hidden}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .35s ease;pointer-events:none}
+.slide.active{opacity:1;pointer-events:auto}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide video{width:100%;height:100%;object-fit:cover;display:block}
+.slide iframe{width:100%;height:100%;border:0;display:block}
+.slide .pp-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:12px}
+.ss-arr{position:absolute;top:50%;transform:translateY(-50%);z-index:10;background:rgba(7,16,31,.72);border:none;color:#fff;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:background .2s;backdrop-filter:blur(4px)}
+.ss-arr:hover{background:rgba(0,194,230,.7)}
+.ss-prev{left:7px}.ss-next{right:7px}
+.ss-dots{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:10}
+.ss-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .2s}
+.ss-dot.on{background:var(--acc)}
+.ss-count{position:absolute;top:7px;right:9px;font-family:var(--mono);font-size:.56rem;letter-spacing:.1em;color:#fff;background:rgba(7,16,31,.65);padding:2px 7px;backdrop-filter:blur(4px);z-index:10}
+/* Modal slideshow */
+.mi{position:relative;overflow:hidden}
+.mi .slide{position:absolute;inset:0}
+.mi .ss-arr{width:34px;height:34px;font-size:.9rem}
+/* ── Org logos ───────────────────────────────────────────*/
+.org-logo{width:30px;height:30px;border-radius:5px;object-fit:contain;background:#fff;padding:3px;flex-shrink:0}
+.org-logo-sm{width:24px;height:24px;border-radius:4px;object-fit:contain;background:#fff;padding:2px;flex-shrink:0}
+.e-co-row{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.e-co-row .e-co{margin-bottom:0}
+.edu-head-row{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.edu-head-row .edu-s{margin-bottom:0}
+.cc-logo-row{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <span class="nav-bolt"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13Z"/></svg></span>
+    <span class="nav-logo-txt">S<span>B</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#logbook">Logbook</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-socials">
+    <a href="mailto:shreeniketb@gmail.com" class="nav-icon" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+    <a href="https://linkedin.com/in/shreeniket-bhat" target="_blank" class="nav-icon" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10V9h4v1.5a5 5 0 0 1 4-1.5zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="https://github.com/shreeniketb" target="_blank" class="nav-icon" title="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></a>
+  </div>
+  <a href="resume.pdf" target="_blank" class="nav-cta">Resume ↗</a>
+  <button class="hamburger" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="c"></canvas>
+  <div class="hero-l">
+    <span class="hero-ey">Industrial Engineer &nbsp;·&nbsp; Builder &nbsp;·&nbsp; Problem Solver</span>
+    <h1 class="hero-name">
+      <span class="hn-top">SHREENIKET</span>
+      <span class="hn-bot">BHAT</span>
+    </h1>
+    <p class="hero-p">Incoming <strong>Industrial Engineering</strong> student at Georgia Tech. I'm interested in how systems — machines, processes, and people — can work better together. Born in India. Raised in Hong Kong.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="bs">View My Work</a>
+      <a href="https://linkedin.com/in/shreeniket-bhat" target="_blank" class="bo">LinkedIn ↗</a>
+      <a href="resume.pdf" download class="bo">Resume ↓</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hpf">
+      <!-- RENAME your headshot to profile.jpg, put it in an images/ folder -->
+      <img src="images/profile.jpg" alt="Shreeniket Bhat">
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div class="sc"><span class="sn">3×</span><span class="sl">NYAS Global<br>Finalist</span></div>
+    <div class="sc"><span class="sn" style="font-size:1.1rem;letter-spacing:.02em">HUVTSP</span><span class="sl">Harvard Fellow<br>2025</span></div>
+    <div class="sc"><span class="sn">IE</span><span class="sl">Georgia Tech<br>Fall 2026</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section alt">
+  <div class="sec-head sr"><div><div class="lbl" style="margin-bottom:9px">01 — About</div><h2 class="sec-title">Who I Am</h2></div><span class="sec-num">01</span></div>
+  <div class="ag">
+    <div class="ab">
+      <p class="sr">I grew up in Hong Kong after being born in India, and I've spent most of my life trying to figure out how things work — and how they could work better. That curiosity is what led me to <strong>Industrial Engineering at Georgia Tech</strong>. I'm drawn to the space where technology and people interact: smart manufacturing, automation, and systems that actually make sense to use.</p>
+      <p class="sr d1">I don't have all the answers yet — that's the point of going to university. But I've had the chance to work on real problems: programming an FRC robot's autonomous routine from scratch, building a data pipeline at Harvard, and running usability tests at a supply-chain tech company in Hong Kong. I learn by doing, and I'm comfortable starting from zero.</p>
+      <p class="sr d2">Sport has shaped a lot of how I think. I was a <strong>student-athlete</strong> on a soccer scholarship at Black Rock Academy in the US, trained with <strong>Kitchee Academy</strong> — Hong Kong's top youth football club — and was part of the <strong>HK National Tennis Squad</strong> for four years, competing across Asia. Playing at that level taught me to lead under pressure, iterate when things aren't working, and rely on a team. Those habits carry directly into engineering work.</p>
+      <div class="af sr d3">
+        <div class="af-c"><div class="af-l">Based in</div><div class="af-v">Hong Kong SAR</div></div>
+        <div class="af-c"><div class="af-l">Studying</div><div class="af-v">Georgia Tech IE '30</div></div>
+        <div class="af-c" style="grid-column:1/-1"><div class="af-l">Interests</div><div class="af-v">Smart Manufacturing · Automation · Human-Robot Collaboration · IoT Systems · Sustainable Design</div></div>
+        <div class="af-c"><div class="af-l">Languages</div><div class="af-v">English · Konkani · Spanish · Hindi · Mandarin · German (beginner)</div></div>
+        <div class="af-c"><div class="af-l">Hobbies</div><div class="af-v">Hiker · Coffee drinker · Car collector · Traveler · Casual photographer</div></div>
+      </div>
+    </div>
+    <div class="sr d1">
+      <div class="cr-list">
+        <div class="cr-item"><span class="cri">🏆</span><div><strong>NYAS Winner</strong> — Wearable Tech Challenge, 1st of 170 global teams</div></div>
+        <div class="cr-item"><span class="cri">🎓</span><div><strong>Harvard HUVTSP Fellow</strong> — US$2k Scholarship · &lt;15% acceptance</div></div>
+        <div class="cr-item"><span class="cri">⭐</span><div><strong>Top 50 HK Youth STEAM Talent</strong> — Only non-native student selected</div></div>
+        <div class="cr-item"><span class="cri">📐</span><div><strong>Highest in Asia</strong> — IGCSE Design Technology exam</div></div>
+        <div class="cr-item"><span class="cri">⚽</span><div><strong>Student-Athlete</strong> — Soccer scholarship (Black Rock Academy) · Kitchee Academy · HK Yau Yee League Div 1</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="sec-head sr"><div><div class="lbl" style="margin-bottom:9px">02 — Projects</div><h2 class="sec-title">Featured Work</h2></div><span class="sec-num">02</span></div>
+  <div class="pg">
+    <div class="pc sr" onclick="openM('frc')">
+      <div class="pp" data-proj="frc"><div class="pp-ph">📷 images/frc.jpg</div></div>
+      <div class="pb2">
+        <div class="pi">01 &nbsp; Robotics &amp; Controls</div>
+        <h3 class="pt">FRC Autonomous Gyro-Drive System</h3>
+        <div class="prows">
+          <div class="pr pb"><span class="rl">Problem</span><span class="rv">FRC robots drift during autonomous. The team needed a self-correcting routine inside a strict 15-second window — with no experienced programmer on the team.</span></div>
+          <div class="pr ro"><span class="rl">My Role</span><span class="rv">Self-taught Java through lab hours and trial-and-error. Programmed the full gyro-drive routine from scratch. Also contributed to electronics and build.</span></div>
+          <div class="pr re"><span class="rl">Result</span><span class="rv">🥉 3rd · South Florida Regional · 4th · NY Tech Valley Regional (2024)</span></div>
+        </div>
+        <div class="ptools"><span class="ptag">Java</span><span class="ptag">VS Code</span><span class="ptag">WPILib</span><span class="ptag">Gyro Control</span></div>
+        <div class="phint">↗ Click to read more</div>
+      </div>
+    </div>
+    <div class="pc sr d1" onclick="openM('vision')">
+      <div class="pp" data-proj="vision"><div class="pp-ph">📷 images/vision.jpg</div></div>
+      <div class="pb2">
+        <div class="pi">02 &nbsp; AI &amp; Product Design</div>
+        <h3 class="pt">VisionXcelerate — AR Smart Glasses for Dementia</h3>
+        <div class="prows">
+          <div class="pr pb"><span class="rl">Problem</span><span class="rv">Dementia patients lose independence as memory declines. Existing assistive tech is reactive, not proactive — and caregiver burnout is a real downstream consequence.</span></div>
+          <div class="pr ro"><span class="rl">My Role</span><span class="rv">Led CAD design, research, and the embedded IoT hardware and software stack. Designed the AR interface concept for real-time contextual memory cues.</span></div>
+          <div class="pr re"><span class="rl">Result</span><span class="rv">🏆 Winner · NYAS Wearable Tech Challenge · 1st of 170 global teams (2024)</span></div>
+        </div>
+        <div class="ptools"><span class="ptag">CAD</span><span class="ptag">Embedded IoT</span><span class="ptag">AR Concept</span><span class="ptag">Research</span></div>
+        <div class="phint">↗ Click to read more</div>
+      </div>
+    </div>
+    <div class="pc sr d2" onclick="openM('harvard')">
+      <div class="pp" data-proj="harvard"><div class="pp-ph">📷 images/harvard.jpg</div></div>
+      <div class="pb2">
+        <div class="pi">03 &nbsp; Data &amp; Automation</div>
+        <h3 class="pt">AI Workflow Automation — Energy Sector Dashboard</h3>
+        <div class="prows">
+          <div class="pr pb"><span class="rl">Problem</span><span class="rv">Energy firms waste significant time on repetitive manual data entry and compliance reporting — error-prone work that can be automated.</span></div>
+          <div class="pr ro"><span class="rl">My Role</span><span class="rv">Mapped workflows through user research, built Python/Pandas data pipelines, and designed a Figma SaaS dashboard with AI-assisted reporting and anomaly detection.</span></div>
+          <div class="pr re"><span class="rl">Result</span><span class="rv">🎓 Pitched to industry mentors · Harvard HUVTSP 2025 · US$2k Scholarship</span></div>
+        </div>
+        <div class="ptools"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Figma</span><span class="ptag">Prompt Engineering</span></div>
+        <div class="phint">↗ Click to read more</div>
+      </div>
+    </div>
+    <div class="pc sr d3" onclick="openM('gripper')">
+      <div class="pp" data-proj="gripper"><div class="pp-ph">📷 images/gripper.jpg</div></div>
+      <div class="pb2">
+        <div class="pi">04 &nbsp; Soft Robotics &amp; Biomimicry</div>
+        <h3 class="pt">Pneumatic Soft Robotic Gripper — Fruit Harvesting</h3>
+        <div class="prows">
+          <div class="pr pb"><span class="rl">Problem</span><span class="rv">Rigid industrial grippers bruise soft produce. Agriculture needs compliant, force-sensitive solutions — inspired by how the human hand applies distributed grip.</span></div>
+          <div class="pr ro"><span class="rl">My Role</span><span class="rv">Self-led project end-to-end. Designed and fabricated using silicone casting and Arduino control, applying biomimicry throughout. No team, no template.</span></div>
+          <div class="pr re"><span class="rl">Result</span><span class="rv">🔬 Lake Placid STEM Exhibition · Advanced STEM College Credit (2024)</span></div>
+        </div>
+        <div class="ptools"><span class="ptag">Arduino</span><span class="ptag">Silicone Casting</span><span class="ptag">CAD</span><span class="ptag">Biomimicry</span></div>
+        <div class="phint">↗ Click to read more</div>
+      </div>
+    </div>
+    <div class="pc sr d2" onclick="openM('adirondack')">
+      <div class="pp" data-proj="adirondack"><div class="pp-ph">📷 images/adirondack.jpg</div></div>
+      <div class="pb2">
+        <div class="pi">05 &nbsp; Architectural &amp; CAD Design</div>
+        <h3 class="pt">Complete House Plan — Modernist Adirondack Home</h3>
+        <div class="prows">
+          <div class="pr pb"><span class="rl">Problem</span><span class="rv">Design a complete residential home — floor plans, 3D model, interior layout, and scale prototype — from scratch using CAD tools only.</span></div>
+          <div class="pr ro"><span class="rl">My Role</span><span class="rv">Independently developed full dimensioned 3-storey floor plans, 3D CAD model, interior design, section views, and a cardboard scale prototype.</span></div>
+          <div class="pr re"><span class="rl">Result</span><span class="rv">📐 Full architectural CAD package · Northwood School · Mar – May 2024</span></div>
+        </div>
+        <div class="ptools"><span class="ptag">SketchUp</span><span class="ptag">Floor Plans</span><span class="ptag">3D Modelling</span><span class="ptag">Prototyping</span></div>
+        <div class="phint">↗ Click to read more</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="smw sr">
+    <button class="btn-sm" onclick="toggleMore()"><span id="sml">+ View More Projects</span></button>
+  </div>
+  <div id="ep">
+    <div class="eg">
+      <div class="ec" onclick="openM('gametheory')">
+        <div class="en">06 · Research &amp; Mathematics</div>
+        <div class="et">Mekong River Conflict — Game Theory Analysis</div>
+        <div class="ed">Applied game theory to model China's dam strategy and downstream nations' responses. Two-player payoff matrix with four game variations.</div>
+        <div class="eh">↗ Read more</div>
+      </div>
+      <div class="ec" onclick="openM('truss')">
+        <div class="en">07 · Structural Engineering</div>
+        <div class="et">Popsicle Truss Bridge — Load Optimisation</div>
+        <div class="ed">Designed, hand-analysed (moments, method of joints), built, and tested a Warren-design truss bridge. Held 40 lbs before failure.</div>
+        <div class="eh">↗ Read more</div>
+      </div>
+      <div class="ec" onclick="openM('dt')">
+        <div class="en">08 · Product Design (IGCSE DT)</div>
+        <div class="et">Portable Study Unit — Electronic Product Design</div>
+        <div class="ed">Designed for Hong Kong's small-home context. Full process from client research to CAD, electronics (LDR, thermistor), and physical manufacture.</div>
+        <div class="eh">↗ Read more</div>
+      </div>
+      <div class="ec" onclick="openM('greenhouse')">
+        <div class="en">09 · Systems Design</div>
+        <div class="et">Modular AC Greenhouse System</div>
+        <div class="ed">Led a team of four to research, CAD model, 3D print, and material-test a modular climate-controlled greenhouse for sustainable agriculture.</div>
+        <div class="eh">↗ Read more</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="section alt">
+  <div class="sec-head sr"><div><div class="lbl" style="margin-bottom:9px">03 — Experience</div><h2 class="sec-title">Where I've Worked</h2></div><span class="sec-num">03</span></div>
+  <div class="el">
+    <div class="ei sr">
+      <div><div class="e-date">Mar 2026 — Present</div><div class="e-loc">Hong Kong SAR</div></div>
+      <div><div class="e-role">HK Regional Ambassador</div><div class="e-co-row"><img class="org-logo" src="images/logos/wellprepped.jpg" alt="WellPrepped" onerror="this.style.display='none'"><div class="e-co">WellPrepped Education</div></div><p class="e-desc">Representing WellPrepped across Hong Kong — driving platform awareness, managing school outreach, and building partnerships.</p><div class="tr"><span class="tg">EdTech</span><span class="tg">Marketing</span><span class="tg">Outreach</span></div></div>
+    </div>
+    <div class="ei sr d1">
+      <div><div class="e-date">Jul – Aug 2025</div><div class="e-loc">Boston, USA</div></div>
+      <div><div class="e-role">Technical Product Fellow</div><div class="e-co-row"><img class="org-logo" src="images/logos/harvard.jpg" alt="Harvard" onerror="this.style.display='none'"><div class="e-co">Harvard Undergraduate Ventures — HUVTSP · US$2k Scholarship · &lt;15% acceptance</div></div><p class="e-desc">Mapped AI/ML workflow automation opportunities for energy firms through user research. Built data cleaning pipelines in Python and Pandas. Designed a Figma SaaS prototype with regression analysis, anomaly detection, and AI-assisted reporting — then pitched to industry mentors.</p><div class="tr"><span class="tg">Python</span><span class="tg">Pandas</span><span class="tg">Figma</span><span class="tg">UX Research</span><span class="tg">Energy Tech</span></div></div>
+    </div>
+    <div class="ei sr d2">
+      <div><div class="e-date">Jul 2025</div><div class="e-loc">Hong Kong SAR</div></div>
+      <div><div class="e-role">Professional Services Assistant</div><div class="e-co-row"><img class="org-logo" src="images/logos/tradelink.jpg" alt="TradeLink" onerror="this.style.display='none'"><div class="e-co">TradeLink Technologies</div></div><p class="e-desc">Conducted usability testing and designed mockups for AI-guided warehouse packing workflows. Led a KPI data validation experiment comparing AI software vs. manual effort using PO datasets and PivotTables — results used directly in investor materials.</p><div class="tr"><span class="tg">UX/UI</span><span class="tg">Data Validation</span><span class="tg">Excel</span><span class="tg">Supply Chain</span><span class="tg">Industry 4.0</span></div></div>
+    </div>
+    <div class="ei sr d3">
+      <div><div class="e-date">2024 — Present</div><div class="e-loc">Hong Kong SAR</div></div>
+      <div><div class="e-role">Research Team Manager — Volunteer</div><div class="e-co-row"><img class="org-logo" src="images/logos/celer.png" alt="Celer HK" onerror="this.style.display='none'"><div class="e-co">Celer HK (NGO)</div></div><p class="e-desc">Published weekly extracurricular opportunity reports for HK high school students. Co-led Career Day sessions coaching groups of 20 students (Grades 6–11) on summer planning and early career development.</p><div class="tr"><span class="tg">Research</span><span class="tg">Mentoring</span><span class="tg">Volunteer</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="section">
+  <div class="sec-head sr"><div><div class="lbl" style="margin-bottom:9px">04 — Education</div><h2 class="sec-title">Academic Path</h2></div><span class="sec-num">04</span></div>
+  <div class="edu-l">
+    <div class="edu-i sr"><div class="edu-y">Fall 2026 →</div><div><div class="edu-head-row"><img class="org-logo" src="images/logos/gatech.png" alt="Georgia Tech" onerror="this.style.display='none'"><div class="edu-s">Georgia Institute of Technology</div></div><div class="edu-d">B.S. Industrial Engineering — #1 in the US</div><div class="edu-n">Focus: Smart Manufacturing · Operations Research · Human-Robot Systems · Optimisation</div></div><span class="edu-b">Incoming</span></div>
+    <div class="edu-i sr d1"><div class="edu-y">2024 – 2026</div><div><div class="edu-head-row"><img class="org-logo" src="images/logos/stamford.png" alt="Stamford American" onerror="this.style.display='none'"><div class="edu-s">Stamford American School, Hong Kong</div></div><div class="edu-d">IB Diploma — Valedictorian</div><div class="edu-n">4 HLs: Math AA, Physics, Business, Design Technology · General Scholarship HK$130,000 (3 of 800+) · Top 50 HK Youth STEAM Talent Award</div></div><span class="edu-b">IB</span></div>
+    <div class="edu-i sr d2"><div class="edu-y">2023 – 2024</div><div><div class="edu-head-row"><img class="org-logo" src="images/logos/northwood.jpg" alt="Northwood School" onerror="this.style.display='none'"><div class="edu-s">Northwood School, Lake Placid, USA</div></div><div class="edu-d">AP Program — Rank 1 · 4.0 GPA unweighted</div><div class="edu-n">Student-Athlete Soccer Scholarship · Cum Laude Society · Dean's List · FRC Robotics Team 6300</div></div><span class="edu-b">4.0 GPA</span></div>
+    <div class="edu-i sr d3"><div class="edu-y">2018 – 2023</div><div><div class="edu-head-row"><img class="org-logo" src="images/logos/kgv.png" alt="KGV" onerror="this.style.display='none'"><div class="edu-s">King George V School, Hong Kong</div></div><div class="edu-d">IGCSE — Top 4 of 250 · All A*/9s (10 subjects)</div><div class="edu-n">Highest in Asia — IGCSE Design Technology · Speech Day Awards (DT, Spanish, English, History)</div></div><span class="edu-b">All A*</span></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="section alt">
+  <div class="sec-head sr"><div><div class="lbl" style="margin-bottom:9px">05 — Skills</div><h2 class="sec-title">Tools &amp; Skills</h2></div><span class="sec-num">05</span></div>
+  <div class="sg">
+    <div class="sr"><div class="sk-t">Engineering &amp; CAD</div><ul class="sk-l"><li>Autodesk Fusion 360</li><li>SketchUp</li><li>Rhino / OnShape</li><li>3D Printing</li><li>Laser Cutting</li><li>Stress &amp; FEA Analysis</li><li>Rapid Prototyping</li></ul></div>
+    <div class="sr d1"><div class="sk-t">Programming &amp; AI</div><ul class="sk-l"><li>Python (basic)</li><li>Java (FRC / VS Code)</li><li>Arduino</li><li>Prompt Engineering</li><li>Vibe Coding</li><li>Kaggle / Notebooks</li><li>Excel &amp; PivotTables</li></ul></div>
+    <div class="sr d2"><div class="sk-t">Design &amp; Research</div><ul class="sk-l"><li>Figma</li><li>UI/UX &amp; Usability Testing</li><li>SaaS Dashboard Design</li><li>Data Visualisation</li><li>MathWorks MATLAB</li><li>Photography (Sony)</li></ul></div>
+    <div class="sr d3"><div class="sk-t">Languages</div><ul class="sk-l"><li>English (Native)</li><li>Konkani (Native)</li><li>Spanish (Professional)</li><li>Hindi (Conversational)</li><li>Mandarin (Basic)</li><li>German (Basic)</li></ul></div>
+  </div>
+  <div style="margin-top:48px">
+    <div class="lbl sr" style="margin-bottom:17px">Selected Recognition</div>
+    <div class="cs">
+      <div class="cc sr"><div class="cc-logo-row"><img class="org-logo-sm" src="images/logos/nyas.PNG" alt="NYAS" onerror="this.style.display='none'"><div class="cc-l">NYAS · 2024</div></div><div class="cc-t">Winner — Wearable Tech Challenge</div><div class="cc-s">1st of 170 global teams</div></div>
+      <div class="cc sr d1"><div class="cc-logo-row"><img class="org-logo-sm" src="images/logos/cambridge.png" alt="Cambridge" onerror="this.style.display='none'"><div class="cc-l">Cambridge · 2023</div></div><div class="cc-t">Highest in Asia — IGCSE Design Tech</div><div class="cc-s">Top score continent-wide</div></div>
+      <div class="cc sr d2"><div class="cc-logo-row"><img class="org-logo-sm" src="images/logos/hkage.jpg" alt="HKAGE" onerror="this.style.display='none'"><div class="cc-l">HKAGE · 2025</div></div><div class="cc-t">Top 50 — HK Youth STEAM Talent</div><div class="cc-s">Only non-native student selected</div></div>
+      <div class="cc sr d1"><div class="cc-logo-row"><img class="org-logo-sm" src="images/logos/nyas.PNG" alt="NYAS" onerror="this.style.display='none'"><div class="cc-l">NYAS · 2025</div></div><div class="cc-t">Top 10 — Living in Extremes</div><div class="cc-s">Desert settlement design · 170 teams</div></div>
+      <div class="cc sr d2"><div class="cc-logo-row"><img class="org-logo-sm" src="images/logos/nyas.PNG" alt="NYAS" onerror="this.style.display='none'"><div class="cc-l">NYAS · 2022</div></div><div class="cc-t">Runner-Up — Green Redesign</div><div class="cc-s">5G &amp; IoT smart farm · ~100 teams</div></div>
+      <div class="cc sr d3"><div class="cc-logo-row"><img class="org-logo-sm" src="images/logos/atf.jpg" alt="ATF" onerror="this.style.display='none'"><div class="cc-l">ATF · 2019</div></div><div class="cc-t">HK National Tennis Squad · 89th Asia</div><div class="cc-s">Represented Hong Kong · U14 Boys</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGBOOK -->
+<section id="logbook" class="section">
+  <div class="sec-head sr"><div><div class="lbl" style="margin-bottom:9px">06 — Logbook</div><h2 class="sec-title">Learning in Public</h2></div><span class="sec-num">06</span></div>
+  <p class="li-intro sr">A running log of what I'm working on, learning, and figuring out — starting from day one at Georgia Tech. Updated regularly.</p>
+  <div class="ll">
+    <div class="le sr"><div class="le-d">May 2026</div><div><div class="le-t">Built and shipped this portfolio website</div><p class="le-b">Designed and launched this site using plain HTML, CSS, and JavaScript — no frameworks, no prior web experience. Learned about layout systems, scroll animations, and GitHub Pages deployment.</p><div class="le-tags"><span class="le-tag">Web Dev</span><span class="le-tag">Design</span><span class="le-tag">GitHub Pages</span></div></div></div>
+    <div class="le sr d1"><div class="le-d">Summer 2025</div><div><div class="le-t">First real data pipeline — Harvard HUVTSP</div><p class="le-b">Had to clean industrial energy datasets in Python from scratch — no tutorial, just documentation. Went from zero data experience to a working pipeline in two weeks. Biggest lesson: data without a story means nothing.</p><div class="le-tags"><span class="le-tag">Python</span><span class="le-tag">Data</span><span class="le-tag">Harvard</span></div></div></div>
+    <div class="le sr d2"><div class="le-d">Fall 2026</div><div><div class="le-t">Georgia Tech — Week 1 (placeholder)</div><p class="le-b">This entry will be updated from day one in Atlanta. Check back for first impressions of the IE program, clubs I join, and everything that doesn't go as planned.</p><div class="le-tags"><span class="le-tag">Georgia Tech</span><span class="le-tag">Incoming</span></div></div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section alt">
+  <div class="sec-head sr"><div><div class="lbl" style="margin-bottom:9px">07 — Contact</div><h2 class="sec-title">Let's Connect</h2></div><span class="sec-num">07</span></div>
+  <div class="ci2">
+    <div class="sr">
+      <h2 class="ch">LET'S<br>CONNECT<br><em>AND BUILD</em></h2>
+      <p class="cs2">I'm open to internships, research collaborations, or just a good conversation. Feel free to reach out.</p>
+    </div>
+    <div class="cl-list sr d2">
+      <a href="mailto:shreeniketb@gmail.com" class="cl"><div class="cl-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div><div class="cl-lb">Email</div><div class="cl-v">shreeniketb@gmail.com</div></div></a>
+      <a href="https://linkedin.com/in/shreeniket-bhat" target="_blank" class="cl"><div class="cl-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7H10V9h4v1.5a5 5 0 0 1 4-1.5zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></div><div><div class="cl-lb">LinkedIn</div><div class="cl-v">linkedin.com/in/shreeniket-bhat</div></div></a>
+      <a href="https://github.com/shreeniketb" target="_blank" class="cl"><div class="cl-ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg></div><div><div class="cl-lb">GitHub</div><div class="cl-v">github.com/shreeniketb</div></div></a>
+      <a href="resume.pdf" target="_blank" class="cl"><div class="cl-ic" style="font-size:.8rem">↗</div><div><div class="cl-lb">Resume</div><div class="cl-v">Download PDF</div></div></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fl">SHREENIKET BHAT</span>
+  <span class="ft">Hong Kong → Atlanta · Built from scratch</span>
+</footer>
+
+<!-- MODAL -->
+<div class="mo" id="mo" onclick="closeBg(event)">
+  <div class="mb" id="mb">
+    <button class="mc" onclick="closeM()">×</button>
+    <div class="mi" id="mi"><div class="mi-ph">📷 Add your project photo here</div></div>
+    <div class="md">
+      <div class="m-cat" id="mcat"></div>
+      <div class="m-tit" id="mtit"></div>
+      <div class="mr2" id="mrows"></div>
+      <div class="m-tools" id="mtools"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const P={
+  frc:{cat:'01 · Robotics & Controls',title:'FRC Autonomous Gyro-Drive System',
+    // EDIT: Add more slides — each is {type:'image'|'video'|'embed', src:'...', caption:'...'}
+    slides:[
+      {type:'image', src:'images/frc.jpg', caption:'FRC Robot'},
+      // {type:'video', src:'images/frc_demo.mp4', caption:'Autonomous routine demo'},
+    ],
+    problem:'FRC robots drift during autonomous periods. The team needed a reliable, self-correcting routine within a strict 15-second competition window — and we had no experienced programmer.',role:'I had no coding background when I started. I took on the programming role, taught myself Java through lab hours and trial-and-error, and built a gyro-drive autonomous routine that could self-straighten in real time. Also contributed to electronics, machining, and build.',result:'🥉 3rd · South Florida Regional · 4th · NY Tech Valley Regional (2024)',tools:['Java','VS Code / WPILib','Gyroscope Control','Autonomous Programming','FRC Robotics']},
+  vision:{cat:'02 · AI & Product Design',title:'VisionXcelerate — AR Smart Glasses for Dementia Independence',
+    slides:[
+      {type:'image', src:'images/vision.jpg', caption:'VisionXcelerate concept'},
+      // {type:'image', src:'images/vision2.jpg', caption:'Hardware stack'},
+      // {type:'embed', src:'https://www.youtube.com/embed/YOUR_ID', caption:'Presentation'},
+    ],
+    problem:'Dementia patients progressively lose independence as memory deteriorates. Existing assistive technology is reactive — it responds after something goes wrong rather than preventing it. Caregivers carry an unsustainable daily burden.',role:'Led CAD design, research, and the hardware-software embedded IoT stack. Designed the AR interface concept to deliver real-time contextual memory cues — reminders, face recognition, navigation — to help patients stay independent longer.',result:'🏆 Winner · NYAS Wearable Technologies Challenge · 1st of 170 global teams (Spring 2024)',tools:['CAD Design','Embedded IoT Stack','AR Interface Concept','Hardware Design','Research']},
+  harvard:{cat:'03 · Data & Automation',title:'AI Workflow Automation — Energy Sector Dashboard',
+    slides:[
+      {type:'image', src:'images/harvard.jpg', caption:'Harvard HUVTSP presentation'},
+      // {type:'image', src:'images/harvard_dashboard.jpg', caption:'Figma dashboard prototype'},
+      // {type:'embed', src:'https://www.youtube.com/embed/YOUR_ID', caption:'Pitch video'},
+    ],
+    problem:'Energy firms spend significant manual time on data entry, compliance reporting, and error-prone record-keeping — repetitive work that creates costly bottlenecks.',role:'Mapped workflows and identified bottlenecks through user research. Built data cleaning pipelines in Python and Pandas to handle multi-format industrial datasets. Designed a Figma SaaS dashboard prototype with regression analysis, anomaly detection, and AI-assisted reporting.',result:'🎓 Pitched to industry mentors · Harvard HUVTSP 2025 · US$2k Scholarship · &lt;15% programme acceptance',tools:['Python','Pandas','Figma','Prompt Engineering','UX Research','Data Visualisation']},
+  gripper:{cat:'04 · Soft Robotics & Biomimicry',title:'Pneumatic Soft Robotic Gripper — Fruit Harvesting Optimisation',
+    slides:[
+      {type:'image', src:'images/gripper.jpg', caption:'Pneumatic gripper'},
+      // {type:'video', src:'images/gripper_demo.mp4', caption:'Gripping demonstration'},
+      // {type:'image', src:'images/gripper_cad.jpg', caption:'CAD model'},
+    ],
+    problem:'Rigid industrial grippers bruise and damage soft produce during harvesting. Agriculture needs compliant, force-sensitive alternatives — but most soft robotics solutions are too expensive or fragile.',role:'Self-led project, end-to-end. Drew inspiration from how the human hand applies distributed, adaptive force. Designed and fabricated using silicone casting, controlled via Arduino. Tested grip compliance, force distribution, and failure modes independently.',result:'🔬 Lake Placid STEM Exhibition · Advanced STEM College Credit · Northwood School (Spring 2024)',tools:['Arduino','Silicone Casting','CAD Design','Biomimicry','Soft Robotics']},
+  adirondack:{cat:'05 · Architectural & CAD Design',title:'Complete House Plan — Modernist Adirondack Home',
+    slides:[
+      {type:'image', src:'images/adirondack.jpg', caption:'3D exterior model'},
+      // {type:'image', src:'images/adirondack_plans.jpg', caption:'Dimensioned floor plans'},
+      // {type:'image', src:'images/adirondack_interior.jpg', caption:'Interior design'},
+      // {type:'image', src:'images/adirondack_model.jpg', caption:'Cardboard scale model'},
+    ],
+    problem:'Design a complete, realistic residential home for the Adirondack region from scratch — floor plans, 3D model, interior layout, and a scale prototype — using CAD tools only.',role:'Independently developed full dimensioned floor plans for a 3-storey modernist home, a 3D CAD model with interior design and furnishing, section views showing each floor, and a rapid cardboard scale model for spatial testing.',result:'📐 Full architectural CAD package completed · Northwood School, Lake Placid · March – May 2024',tools:['SketchUp','Architectural Drawings','Floor Plans','3D Modelling','Cardboard Prototyping','Interior Design']},
+  gametheory:{cat:'06 · Research & Mathematics',title:'Mekong River Water Conflict — Game Theory Analysis',
+    slides:[
+      {type:'image', src:'', caption:''},
+      // {type:'image', src:'images/gametheory_matrix.jpg', caption:'Payoff matrix'},
+      // {type:'embed', src:'https://www.youtube.com/embed/YOUR_ID', caption:'Presentation'},
+    ],
+    problem:"The Mekong River is shared by six nations. China's upstream dam construction gives it significant control — but what does a mathematical model say about whether cooperation or unilateral action is the rational strategy?",role:'Independently researched and wrote a full academic paper applying a two-player game-theoretic model to the conflict. Explored payoff matrices, dominant strategies, and four game variations — including the effect of soft power and long-term environmental costs.',result:'📝 Research paper completed · Northwood School · 2023–2024',tools:['Game Theory','Payoff Matrix Analysis','Applied Probability','Research Writing','Geopolitics']},
+  truss:{cat:'07 · Structural Engineering',title:'Popsicle Truss Bridge — Structural Optimisation',
+    slides:[
+      {type:'image', src:'', caption:''},
+      // {type:'image', src:'images/truss_bridge.jpg', caption:'Completed bridge'},
+      // {type:'image', src:'images/truss_analysis.jpg', caption:'Hand analysis'},
+    ],
+    problem:'Design, analyse, build, and test a cost-effective popsicle stick truss bridge maximising load-bearing capacity, with real budget constraints on materials.',role:'Chose a Warren truss design via the Johns Hopkins Truss Simulator. Performed full hand analysis — moments, method of joints, trigonometric ratios — and verified against simulation. Fabricated and tested incrementally with gym weights until failure.',result:'⚙️ Bridge held 40 lbs before collapse · Load-to-cost ratio: 0.49 N per unit cost · Northwood School (2024)',tools:['Structural Analysis','SketchUp','Truss Simulation','Hand Calculations','Principles of Engineering']},
+  dt:{cat:'08 · Product Design (IGCSE DT NEA)',title:'Portable Study Unit — Electronic Product Design',
+    slides:[
+      {type:'image', src:'', caption:''},
+      // {type:'image', src:'images/dt_product.jpg', caption:'Final product'},
+      // {type:'image', src:'images/dt_cad.jpg', caption:'CAD drawings'},
+    ],
+    problem:"Hong Kong's small-home environment makes it hard for students and remote workers to have a comfortable, organised workspace. This was a real daily problem — especially during and after the pandemic when more people were working and studying from home.",role:'Led the full design process independently — from client interviews, surveys, and observations to CAD development, engineering drawings, and physical manufacture. Integrated electronics: an LDR light sensor, thermistor, and cooling fan for laptop ventilation. Produced a physical prototype and evaluated it against the design specification.',result:'📐 IGCSE Design Technology NEA · King George V School · Highest marks in Asia for IGCSE DT exam',tools:['CAD Design','Electronics (LDR/Thermistor)','Arduino','Engineering Drawings','Manufacturing','Client Research']},
+  greenhouse:{cat:'09 · Systems Design',title:'Modular AC Greenhouse System',
+    slides:[
+      {type:'image', src:'', caption:''},
+      // {type:'image', src:'images/greenhouse_cad.jpg', caption:'CAD model'},
+      // {type:'embed', src:'https://www.youtube.com/embed/YOUR_ID', caption:'Video presentation'},
+    ],
+    problem:'Conventional greenhouses struggle with climate control in hot or variable environments. A modular, climate-controlled design could make controlled-environment agriculture more accessible at smaller scale.',role:'Led a team of four. Researched feasibility, designed the modular system in CAD, 3D printed components, and ran material testing. Produced a video presentation of the concept and findings.',result:'🌱 HK Science Fair 2024–2025',tools:['Fusion 360','3D Printing','Systems Design','Material Testing','Team Leadership']}
+};
+
+// ══ SLIDESHOW SYSTEM ════════════════════════════════════════════════
+const SS = {}; // {projId: currentIndex}
+
+function makeSlide(s, ph) {
+  const d = document.createElement('div');
+  d.className = 'slide';
+  if (!s.src) {
+    d.innerHTML = '<div class="' + ph + '">📷 Add your media here</div>';
+  } else if (s.type === 'video') {
+    const v = document.createElement('video');
+    v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+    const src = document.createElement('source'); src.src = s.src; src.type = 'video/mp4';
+    v.appendChild(src); d.appendChild(v);
+  } else if (s.type === 'embed') {
+    const f = document.createElement('iframe');
+    f.src = s.src + '?rel=0'; f.allow = 'autoplay; fullscreen'; f.allowFullscreen = true;
+    d.appendChild(f);
+  } else if (s.type === 'pdf') {
+    if (ph === 'pp-ph') {
+      // Card: PDF icon thumbnail — clicking the card opens the modal
+      d.innerHTML = '<div class="' + ph + '" style="flex-direction:column;gap:8px;pointer-events:none">'
+        + '<svg width="32" height="40" viewBox="0 0 32 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:.75">'
+        + '<rect width="32" height="40" rx="3" fill="#E53E3E"/>'
+        + '<text x="16" y="27" font-family="Arial,sans-serif" font-size="10" font-weight="bold" fill="#fff" text-anchor="middle">PDF</text>'
+        + '</svg>'
+        + '<span style="font-size:.6rem;letter-spacing:.1em;color:var(--td);font-family:var(--mono)">' + (s.caption || 'PDF Document') + '</span>'
+        + '</div>';
+    } else {
+      // Modal: full embedded PDF viewer with open-in-tab fallback
+      const wrap = document.createElement('div');
+      wrap.style.cssText = 'position:relative;width:100%;height:100%;display:flex;flex-direction:column';
+      const f = document.createElement('iframe');
+      f.src = s.src + '#toolbar=1&navpanes=0&view=FitH';
+      f.style.cssText = 'flex:1;width:100%;border:0;display:block;min-height:340px';
+      f.title = s.caption || 'PDF';
+      const btn = document.createElement('a');
+      btn.href = s.src; btn.target = '_blank';
+      btn.style.cssText = 'display:block;padding:8px;text-align:center;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--acc);background:var(--bg3);text-decoration:none;border-top:1px solid var(--line);text-transform:uppercase';
+      btn.textContent = '\u2197 Open PDF in new tab';
+      wrap.appendChild(f); wrap.appendChild(btn);
+      d.appendChild(wrap);
+    }
+  } else {
+    const im = document.createElement('img');
+    im.src = s.src; im.alt = s.caption || '';
+    im.onerror = () => { d.innerHTML = '<div class="' + ph + '">📷 ' + s.src + '</div>'; };
+    d.appendChild(im);
+  }
+  return d;
+}
+
+function buildSlideshow(container, slides, projId, context) {
+  container.innerHTML = '';
+  if (!slides || !slides.length) {
+    container.innerHTML = '<div class="pp-ph">📷 Add your media here</div>'; return;
+  }
+  const idx = SS[projId] || 0;
+  // Build slide divs
+  slides.forEach((s, i) => {
+    const d = makeSlide(s, context === 'modal' ? 'mi-ph' : 'pp-ph');
+    if (i === idx) d.classList.add('active');
+    container.appendChild(d);
+  });
+  if (slides.length <= 1) return;
+  // Arrows
+  const prev = document.createElement('button');
+  prev.className = 'ss-arr ss-prev'; prev.innerHTML = '&#8249;';
+  prev.onclick = e => { e.stopPropagation(); goSlide(projId, container, slides, -1); };
+  const next = document.createElement('button');
+  next.className = 'ss-arr ss-next'; next.innerHTML = '&#8250;';
+  next.onclick = e => { e.stopPropagation(); goSlide(projId, container, slides, 1); };
+  container.appendChild(prev); container.appendChild(next);
+  // Dots
+  const dots = document.createElement('div'); dots.className = 'ss-dots';
+  slides.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'ss-dot' + (i === idx ? ' on' : '');
+    d.onclick = e => { e.stopPropagation(); setSlide(projId, container, slides, i); };
+    dots.appendChild(d);
+  });
+  container.appendChild(dots);
+  // Counter (modal only)
+  if (context === 'modal') {
+    const cnt = document.createElement('div');
+    cnt.className = 'ss-count'; cnt.id = 'ss-count-' + projId;
+    cnt.textContent = `${idx + 1} / ${slides.length}`;
+    container.appendChild(cnt);
+  }
+}
+
+function setSlide(projId, container, slides, idx) {
+  SS[projId] = idx;
+  container.querySelectorAll('.slide').forEach((d, i) => d.classList.toggle('active', i === idx));
+  container.querySelectorAll('.ss-dot').forEach((d, i) => d.classList.toggle('on', i === idx));
+  const cnt = container.querySelector('.ss-count');
+  if (cnt) cnt.textContent = `${idx + 1} / ${slides.length}`;
+  // Pause videos on non-active slides
+  container.querySelectorAll('.slide').forEach((d, i) => {
+    const v = d.querySelector('video'); if (v && i !== idx) v.pause();
+    if (i === idx) { const v2 = d.querySelector('video'); if (v2) v2.play().catch(()=>{}); }
+  });
+}
+
+function goSlide(projId, container, slides, dir) {
+  const cur = SS[projId] || 0;
+  setSlide(projId, container, slides, (cur + dir + slides.length) % slides.length);
+}
+
+function initCardMedia() {
+  document.querySelectorAll('.pp[data-proj]').forEach(pp => {
+    const p = P[pp.dataset.proj];
+    if (p) buildSlideshow(pp, p.slides, pp.dataset.proj, 'card');
+  });
+}
+
+function openM(id) {
+  const p = P[id]; if (!p) return;
+  const mi = document.getElementById('mi');
+  // Stop any videos
+  mi.querySelectorAll('video').forEach(v => { v.pause(); v.src = ''; });
+  mi.querySelectorAll('iframe').forEach(f => { f.src = ''; });
+  buildSlideshow(mi, p.slides, id, 'modal');
+  document.getElementById('mcat').textContent = p.cat;
+  document.getElementById('mtit').textContent = p.title;
+  document.getElementById('mrows').innerHTML = `<div class="mrw pb"><span class="mrl">Problem</span><span class="mrv">${p.problem}</span></div><div class="mrw ro"><span class="mrl">My Role</span><span class="mrv">${p.role}</span></div><div class="mrw re"><span class="mrl">Result</span><span class="mrv">${p.result}</span></div>`;
+  document.getElementById('mtools').innerHTML = p.tools.map(t => `<span class="mtool">${t}</span>`).join('');
+  document.getElementById('mo').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeM(){
+  document.getElementById('mo').classList.remove('open');
+  document.body.style.overflow='';
+  const mi=document.getElementById('mi');
+  mi.querySelectorAll('video').forEach(v=>{v.pause();v.src='';});
+  mi.querySelectorAll('iframe').forEach(f=>{f.src='';});
+}
+function closeBg(e){if(e.target===document.getElementById('mo'))closeM()}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+
+function toggleMore(){
+  const ex=document.getElementById('ep');
+  const open=ex.classList.toggle('open');
+  document.getElementById('sml').textContent=open?'− Hide Projects':'+ View More Projects';
+}
+
+// Scroll reveal
+(function(){const els=document.querySelectorAll('.sr');const io=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('in')})},{threshold:.08});els.forEach(el=>io.observe(el))})();
+
+// ── Canvas media + card init ──────────────────────────────────────────
+document.fonts.ready.then(() => {
+  initCardMedia();
+});
+
+// Particle canvas
+(function(){
+  const cv=document.getElementById('c');if(!cv)return;
+  const ctx=cv.getContext('2d');let W,H,pts=[],raf;
+  function init(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;pts=[];const n=Math.floor(W/28);for(let i=0;i<n;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.1+.4})}
+  function draw(){ctx.clearRect(0,0,W,H);const M=110;for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);if(d<M){ctx.beginPath();ctx.strokeStyle=`rgba(0,194,230,${(1-d/M)*.1})`;ctx.lineWidth=.6;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke()}}ctx.beginPath();ctx.arc(pts[i].x,pts[i].y,pts[i].r,0,Math.PI*2);ctx.fillStyle='rgba(0,194,230,.3)';ctx.fill();pts[i].x+=pts[i].vx;pts[i].y+=pts[i].vy;if(pts[i].x<0||pts[i].x>W)pts[i].vx*=-1;if(pts[i].y<0||pts[i].y>H)pts[i].vy*=-1}raf=requestAnimationFrame(draw)}
+  function start(){init();if(raf)cancelAnimationFrame(raf);draw()}
+  start();window.addEventListener('resize',start);
+})();
+
+// Nav shadow on scroll
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.boxShadow=window.scrollY>48?'0 1px 22px rgba(0,0,0,.5)':'none'},{passive:true});
+
+// Mobile hamburger
+(function(){
+  const btn=document.getElementById('hbg'),links=document.querySelector('.nav-links');
+  if(!btn||!links)return;let open=false;
+  btn.addEventListener('click',()=>{open=!open;links.style.cssText=open?'display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(7,16,31,.97);padding:18px 16px;gap:16px;border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(20px);z-index:899':'display:none'});
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{open=false;links.style.cssText='display:none'}));
+})();
+</script>
+</body>
+</html>
