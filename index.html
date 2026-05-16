@@ -220,7 +220,7 @@ footer{border-top:1px solid var(--line);padding:18px 52px;display:flex;align-ite
 .mb{background:var(--bg2);border:1px solid var(--line);max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative}
 .mc{position:absolute;top:13px;right:15px;background:none;border:none;color:var(--td);font-size:1.4rem;cursor:pointer;transition:color .2s;line-height:1;z-index:10}
 .mc:hover{color:var(--t)}
-.mi{width:100%;height:200px;background:var(--bg3);display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);overflow:hidden}
+.mi{width:100%;height:350px;background:var(--bg3);position:relative;border-bottom:1px solid var(--line);overflow:hidden}
 .mi img{width:100%;height:100%;object-fit:cover;display:block}
 .mi-ph{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--td);text-transform:uppercase;text-align:center}
 .md{padding:32px 36px 36px}
@@ -299,6 +299,8 @@ footer{border-top:1px solid var(--line);padding:18px 52px;display:flex;align-ite
 .edu-head-row{display:flex;align-items:center;gap:9px;margin-bottom:3px}
 .edu-head-row .edu-s{margin-bottom:0}
 .cc-logo-row{display:flex;align-items:center;gap:7px;margin-bottom:6px}
+
+.ss-caption{position:absolute;bottom:0;left:0;right:0;padding:7px 14px;background:rgba(7,16,31,.72);font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;color:var(--tm);text-transform:uppercase;backdrop-filter:blur(4px);z-index:11;pointer-events:none}
 </style>
 </head>
 <body>
@@ -363,7 +365,7 @@ footer{border-top:1px solid var(--line);padding:18px 52px;display:flex;align-ite
     <div class="ab">
       <p class="sr"> Was born in India. Grew up in Hong Kong. Spent most of my life trying to figure out how things work — and how they could be made more efficient. That curiosity is what led me to <strong>Industrial Engineering at Georgia Tech</strong>. I'm drawn to the space where technology and people interact: smart manufacturing, automation, and systems.</p>
       <p class="sr d1">I don't have all the answers yet — and that's the point of going to university. But I've had the chance to work on real problems: programming an FRC robot's autonomous routine from scratch, building a macro-energy analytics dashboard at Harvard Ventures, and running usability tests at a supply-chain tech company in Hong Kong. I learn by doing, and I'm comfortable starting from zero.</p>
-      <p class="sr d2">Sport has shaped a lot of how I think. I was a <strong>student-athlete</strong> on a soccer scholarship at Black Rock Academy (no.1 prep soccer HS) in the US, played for <strong>Kitchee Academy</strong> — Hong Kong's top youth football club — and was part of the <strong>HK National Tennis Squad</strong> for four years, competing across Asia. Playing at that level taught me to lead under pressure, reflect and reorient when things aren't working, and rely on a team. Those habits carry directly into all work.</p>
+      <p class="sr d2">Sport has shaped a lot of how I think. I was a <strong>student-athlete</strong> on a soccer scholarship at Black Rock Academy (no.1 prep soccer HS) in the US, played for <strong>Kitchee Academy</strong> — Hong Kong's top youth football club — and was part of the <strong>HK National Tennis Squad</strong> for four years, competing across Asia. Playing at that level taught me to lead under pressure, iterate when things aren't working, and rely on a team. Those habits carry directly into engineering work.</p>
       <div class="af sr d3">
         <div class="af-c"><div class="af-l">Based in</div><div class="af-v">Hong Kong SAR</div></div>
         <div class="af-c"><div class="af-l">Studying</div><div class="af-v">Georgia Tech IE '30</div></div>
@@ -719,8 +721,16 @@ function makeSlide(s, ph) {
   } else {
     const im = document.createElement('img');
     im.src = s.src; im.alt = s.caption || '';
+    im.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;background:var(--bg3)';
     im.onerror = () => { d.innerHTML = '<div class="' + ph + '">📷 ' + s.src + '</div>'; };
     d.appendChild(im);
+  }
+  // Caption overlay (modal only — pp-ph context skips it)
+  if (s.caption && ph !== 'pp-ph') {
+    const cap = document.createElement('div');
+    cap.className = 'ss-caption';
+    cap.textContent = s.caption;
+    d.appendChild(cap);
   }
   return d;
 }
