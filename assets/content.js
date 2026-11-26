@@ -184,64 +184,77 @@ window.PORTFOLIO = {
       tools: ['Python', 'Newsvendor model', 'Monte Carlo simulation', 'Backtesting', 'Excel'],
       media: [
         { src: 'assets/img/iise/photo-3.jpg', cap: 'Team Scoop Strategy at the UCC x IISE final' },
-        { src: 'assets/img/iise/slide-03.jpg', cap: 'Executive summary: buy 6,192 cases, auto-ship all at launch' },
-        { src: 'assets/img/iise/slide-08.jpg', cap: 'Store-level forecast blend: error cut from 37.5% to 19.1%' },
-        { src: 'assets/img/iise/slide-10.jpg', cap: 'Expected total cost vs. cases bought: minimum at 6,192' },
-        { src: 'assets/img/iise/slide-15.jpg', cap: 'Recommendation' },
-        { src: 'assets/img/iise/photo-1.jpg', cap: 'The team at Jeremiah\u2019s' },
+        { src: 'assets/img/iise/slide-01.jpg', cap: 'Our winning pitch: \u201cAuto-ship all and sell it through\u201d' },
+        { src: 'assets/img/iise/photo-1.jpg', cap: 'Team Scoop Strategy' },
         { src: 'assets/img/iise/photo-2.jpg', cap: 'Celebrating the win' }
-      ],
-      docs: [{ src: 'assets/docs/IISE_UCC_Scoop_Strategy_Deck.pdf', label: 'Full winning deck (PDF, 17 slides)' }]
+      ]
     },
     {
       id: 'aakruti',
       title: 'AirShield: Solar-Powered Air-Filtration Wall',
       role: 'Team & CAD Lead',
       org: 'Dassault Systèmes SolidWorks AAKRUTI Competition',
-      date: 'May 2026 – Present', badge: 'Top 8 Regional Team',
+      date: 'May 2026 – Present', badge: 'Regional finalist (Top 8) \u00b7 Patent application in preparation',
+      team: 'Team Sparkline',
       cat: 'Product Design · CAD · Simulation',
-      context: 'A global team product challenge: design, validate and make the business case for a new product in SolidWorks. Our concept, AirShield, is a solar-powered wall that filters PM2.5 from outdoor air.',
-      roleText: 'Lead a 5-member global team through the full product cycle: concept scoring, SolidWorks CAD, material selection, simulation, documentation and a business-to-government (B2G) business case.',
-      result: 'Top 8 regional team. Design validated against India’s IS:875 Zone V wind-load standard at ~3.1x factor of safety, with est. 99.89% PM2.5 removal.',
+      context: 'A global team product challenge run by Dassault Syst\u00e8mes: design, validate and make the business case for a new product in SolidWorks. Our concept, AirShield, replaces an ordinary boundary wall with a solar-powered wall that pulls street air through modular filter cartridges to remove PM2.5.',
+      why: 'Fine-particle pollution is a serious health problem in Indian cities, and most air filtration happens indoors. A wall that cleans air at street level without grid power has to filter well at low airflow and stand up to high wind loads, which is why the design was checked against India\u2019s IS:875 Zone V wind-load standard.',
+      roleText: 'Lead a 4-member global team (with a faculty mentor) through the full product cycle: concept scoring, SolidWorks CAD, material selection, simulation, documentation and a business-to-government (B2G) business case.',
+      result: 'Reached the regional finals (Top 8) and pitched to industry judges. Provisional patent application in preparation. Design validated against India’s IS:875 Zone V wind-load standard at ~3.1x factor of safety, with est. 99.89% PM2.5 removal.',
       metrics: [
         { n: '99.89%', l: 'est. PM2.5 removal at 0.20 m/s' },
         { n: '~3.1×', l: 'factor of safety, IS:875 Zone V' },
-        { n: '3', l: 'independent claims in draft provisional patent' },
-        { n: 'Top 8', l: 'regional team' }
+        { n: '3', l: 'independent claims \u00b7 patent application in preparation' },
+        { n: 'Top 8', l: 'regional finalist, pitched to industry judges' }
       ],
       bullets: [
-        'Lead a 5-member global team through the full product cycle for the AirShield solar-powered air-filtration wall: concept scoring, SolidWorks CAD, material selection, simulation, & B2G business case.',
+        'Lead a 4-member global team through the full product cycle for the AirShield solar-powered air-filtration wall: concept scoring, SolidWorks CAD, material selection, simulation, & B2G business case.',
         'Validated the design with airflow simulation & static structural testing against India’s IS:875 Zone V wind-load standard: est. 99.89% PM2.5 removal at 0.20 m/s design face velocity & ~3.1x factor of safety.',
-        'Produced NASA/Boston Dynamics-standard datasheets, BOM tables, & technical documentation; drafted a provisional patent (3 independent claims) & pitch videos.',
+        'Produced NASA/Boston Dynamics-standard datasheets, BOM tables, & technical documentation; drafted a provisional patent application (3 independent claims), now in preparation for filing & pitch videos.',
         'Scored concepts against competition criteria (SolidWorks value, differentiation, feasibility), retiring weaker concepts early to focus effort on AirShield.',
         'Resolved critical design conflicts (sealed plenum integrity, fan-housing stress concentration under IS:875 Zone V loading) through quantitative verification of airflow & structural performance.'
       ],
       tools: ['SolidWorks', 'SolidWorks Flow Simulation', 'Static structural FEA', 'BOM & datasheets', 'Patent drafting'],
-      media: []
+      media: [
+        { src: 'assets/img/airshield/iso-1.jpg', cap: 'AirShield wall with two filtration modules, solar panels and wind turbines' },
+        { src: 'assets/img/airshield/front.jpg', cap: 'Front view render' },
+        { src: 'assets/img/airshield/back.jpg', cap: 'Rear view render' },
+        { src: 'assets/img/airshield/iso-3.jpg', cap: 'Filtration module close-up' },
+        { src: 'assets/img/airshield/flow-velocity.jpg', cap: 'SolidWorks Flow Simulation: velocity through the filter module' },
+        { src: 'assets/img/airshield/flow-trajectories.jpg', cap: 'Flow trajectories through the module openings' },
+        { src: 'assets/img/airshield/displacement.jpg', cap: 'Static structural study: wall displacement under wind load' },
+        { src: 'assets/img/airshield/deck-07.jpg', cap: 'Final product design (competition deck)' },
+        { src: 'assets/img/airshield/deck-09.jpg', cap: 'Design validation (competition deck)' },
+        { type: 'video', src: 'assets/video/airshield-flowsim-video.mp4', poster: 'assets/img/airshield/flowsim-video-poster.jpg', cap: 'Flow simulation (video)' },
+        { type: 'video', src: 'assets/video/airshield-flow-trajectories-video.mp4', poster: 'assets/img/airshield/flow-trajectories-video-poster.jpg', cap: 'Flow trajectories (video)' }
+      ]
     },
     {
       id: 'wear',
-      title: 'Leading a 45-Member Prosthetics Build',
+      title: 'Leading Mechanical for a Wearable-Robotics Club: Prosthetics to Exoskeleton',
       role: 'Mechanical Subteam Lead & Founding Member',
-      org: 'WEAR@GT · Georgia Tech Wearable Robotics',
+      org: 'WEAR@GT \u00b7 Georgia Tech Wearable Robotics',
       date: 'Sep 2026 – Present',
-      cat: 'Wearable Robotics · Team Leadership',
-      context: 'New members join through a one-month onboarding build: seven mentor-led groups each build an open-source prosthetic hand or arm, with EMG electrodes on skin and servos to drive.',
-      roleText: 'Lead the 45-member mechanical subteam: run the onboarding build, consolidate purchasing, set electrical safety rules, run weekly meetings and brief the team on the spring 2027 exoskeleton competition.',
-      result: '7 groups building 6 designs on one consolidated 38-item, ~$403 order, with safety rules and a CAD-modification requirement in place.',
+      cat: 'Wearable Robotics \u00b7 Team Leadership',
+      context: 'WEAR@GT is a new Georgia Tech wearable-robotics club. New members onboard by building open-source prosthetic hands and arms in mentor-led groups; in spring 2027 the club builds a lower-body exoskeleton for a competition modeled on the University of Michigan\u2019s ACE challenge.',
+      why: 'A new club\u2019s first build sets its habits. Shared purchasing, safety rules and a \u201cmodify it, don\u2019t just copy it\u201d standard turn 45 new members into engineers ready to take on a real exoskeleton competition.',
+      roleText: 'As a founding member, I lead the 45-member mechanical subteam. This fall I ran the onboarding prosthetics build; now I manage four mechanical subteams through the research and build phases of the spring 2027 ACE exoskeleton competition, after interviewing and selecting their leads.',
+      result: '7 mentor-led groups building 6 prosthetic designs from one consolidated 38-item, ~$403 order, under clear safety and design rules; four mechanical subteams staffed with screened leads and moving into ACE research.',
       metrics: [
         { n: '45', l: 'members led' },
-        { n: '7', l: 'mentor-led groups, 6 designs' },
-        { n: '38 items', l: 'one ~$403 club order' },
-        { n: '$90', l: 'per-group budget cap' }
+        { n: '7', l: 'mentor-led groups, 6 prosthetic designs' },
+        { n: '~$403', l: 'one consolidated 38-item order' },
+        { n: '4', l: 'mechanical subteams for ACE 2027' }
       ],
       bullets: [
-        'Lead a 45-member mechanical subteam through a 1-month onboarding build (ends Dec 3): 7 mentor-led groups building 6 open-source prosthetic hand & arm designs, with staged deliverables from design brief to final presentation.',
-        'Consolidated 7 groups’ BOMs into one 38-item, ~$403 club order: merged duplicates into shared bulk buys, added overlooked parts (e.g., EMG electrode cables, servo battery), & capped group budgets at $90 (1 documented exception).',
+        'Lead a 45-member mechanical subteam through a 1-month onboarding build: 7 mentor-led groups building 6 open-source prosthetic hand & arm designs, with staged deliverables from design brief to final presentation.',
+        'Consolidated 7 groups\u2019 BOMs into one 38-item, ~$403 club order: merged duplicates into shared bulk buys, added overlooked parts (e.g., EMG electrode cables, servo battery), & capped group budgets at $90 (1 documented exception).',
         'Set electrical safety rules for the EMG build (battery-only power while electrodes are on skin; separate servo supply with common ground) & required every team to modify at least one design part in CAD, not just copy it.',
-        'Run weekly team meetings (agendas, slides, published minutes), organized an Onshape CAD workshop, & analyzed the UMich ACE 2027 lower-body exoskeleton rulebook (scoring, weight handicaps, deadlines) to brief the team for the spring 2027 effort.'
+        'Run weekly team meetings (agendas, slides, published minutes), organized an Onshape CAD workshop, & analyzed the UMich ACE 2027 lower-body exoskeleton rulebook (scoring, weight handicaps, deadlines) to brief the team for the spring 2027 effort.',
+        'Manage 4 mechanical subteams for the ACE exoskeleton (Structures & Joints, Actuation & Transmission, Attachment & Fit, Materials & Manufacturing); interviewed and screened subteam leads for leadership & technical qualities.',
+        'Leading the mechanical team through the ACE research phase, assigning research tasks across the subteams ahead of the spring design and build.'
       ],
-      tools: ['Onshape', 'EMG sensors', 'Servos', 'BOM consolidation', 'Team leadership'],
+      tools: ['Onshape', 'EMG sensors', 'Servos', 'BOM consolidation', 'Interviewing & team building'],
       media: []
     },
     {
@@ -252,16 +265,17 @@ window.PORTFOLIO = {
       date: 'Aug 2026 – Present',
       cat: 'Robotics · Simulation · Team Operations',
       context: 'A Vertically Integrated Projects research team building a six-axis AR4 robotic arm (motors, controller, simulation) to automate sheet-metal processes, with NVIDIA Isaac Sim computer vision planned next.',
-      roleText: 'Co-lead a 6-person team. Mapping failure modes ahead of vision integration, learning Rhino and Grasshopper for a parametric arm simulation, and setting up team documentation and inventory.',
-      result: 'Kit reconciled against the BOM (7 missing part categories flagged), hardware labeled, and SOPs giving the team traceable progress.',
+      roleText: 'Co-lead a 6-person team, continuing as co-lead in spring 2027. Mapping failure modes ahead of vision integration, learning Rhino and Grasshopper for a parametric arm simulation, and setting up team documentation and inventory.',
+      result: 'All six joints of the AR4 arm are assembled. Kit reconciled against the BOM (7 missing part categories flagged), hardware labeled, and SOPs giving the team traceable progress.',
       metrics: [
-        { n: '6-axis', l: 'AR4 robotic arm' },
+        { n: '6/6', l: 'AR4 joints assembled' },
         { n: '6', l: 'person team co-led' },
         { n: '7', l: 'missing part categories flagged' }
       ],
       bullets: [
         'Co-lead a 6-person team building a six-axis AR4 robotic arm (motors, controller, simulation) to automate sheet-metal processes; mapping failure modes ahead of Isaac Sim computer-vision integration.',
-        'Learning Rhino & Grasshopper to build a parametric AR4 simulation (URDF-based inverse kinematics) that checks joint range & collision clearance before physical runs.',
+        'All six AR4 joints now assembled, readying the arm for motion testing.',
+        'Starting a Rhino & Grasshopper parametric AR4 simulation (URDF-based inverse kinematics) that checks joint range & collision clearance before physical runs.',
         'Cut build search time & part mix-ups by reconciling kit vs. BOM, flagging 7 missing part categories, & labeling hardware.',
         'Implemented SOPs for documentation, change logs, & inventory tracking, giving the 6-person team traceable progress.',
         'Led a pilot of Wispr Flow AI note-taking for build logs & action items, reducing manual note-taking.'
