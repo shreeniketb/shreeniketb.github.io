@@ -24,15 +24,30 @@ window.PORTFOLIO = {
     site: 'shreeniketb.github.io',
     photo: 'assets/img/profile.jpg',
     banner: 'assets/img/banner-techtower.jpg',
-    resume: '',                          // e.g. 'assets/docs/Shreeniket_Bhat_Resume.pdf' (shows a Resume button when set)
+    resume: 'assets/docs/Shreeniket_Bhat_Resume.pdf',
+    resumes: [                           // shown in the Resume menu
+      { label: 'Full resume (all experience)', src: 'assets/docs/Shreeniket_Bhat_Resume.pdf' },
+      { label: 'Supply chain & operations', src: 'assets/docs/Shreeniket_Bhat_Resume_SupplyChain.pdf' },
+      { label: 'Manufacturing & process', src: 'assets/docs/Shreeniket_Bhat_Resume_Manufacturing.pdf' },
+      { label: 'Mechanical design & robotics', src: 'assets/docs/Shreeniket_Bhat_Resume_Design_Robotics.pdf' },
+      { label: 'Data, AI & analytics', src: 'assets/docs/Shreeniket_Bhat_Resume_Data_Analytics.pdf' }
+    ],
     logos: [
       { name: 'Georgia Tech', src: 'Images/logos/gatech.png' },
       { name: 'Harvard Undergraduate Ventures', src: 'Images/logos/harvard.jpg' },
       { name: 'TradeLink Technologies', src: 'Images/logos/tradelink.jpg' },
       { name: 'Stamford American School', src: 'Images/logos/stamford.png' }
     ],
-    strengths: [],                       // add 3 one-liners in your own words to show the section
-    weaknesses: [],
+    strengths: [                         // drafts: rewrite in your own words any time
+      'I bring structure to messy group work: one BOM, clear owners, written SOPs and meeting minutes people actually read.',
+      'Comfortable starting from zero. I taught myself Java for FRC and Python data pipelines on the job.',
+      'I can move between the shop floor and the spreadsheet, from robot cells and fixtures to newsvendor models and Monte Carlo runs.'
+    ],
+    weaknesses: [
+      'I say yes to too many things at once, so I have had to get strict about calendars and priorities.',
+      'I over-document. A two-line update sometimes turns into a full report.',
+      'My software depth is still growing: ROS and larger codebases are next on my list.'
+    ],
     intro: 'I’m an Industrial & Systems Engineering student at Georgia Tech who likes making machines, processes and people work better together. I do paid research at Georgia Tech’s Advanced Manufacturing Pilot Facility, co-lead robotics and energy teams, and use data to make supply-chain decisions.',
     about: [
       'I was born in India, grew up in Hong Kong, and now study <strong>Industrial & Systems Engineering at Georgia Tech</strong> (#1 IE program, U.S. News). Most of my work sits where hardware meets operations: robotic cells, inspection, fixtures and safety on one side; forecasting, sourcing and process improvement on the other.',
@@ -41,7 +56,7 @@ window.PORTFOLIO = {
     ],
     facts: [
       ['Based in', 'Atlanta, GA'],
-      ['Studying', 'B.S. ISyE, Expected May 2029'],
+      ['Studying', 'B.S. Industrial & Systems Engineering, concentration in Supply Chain Engineering, minor in Robotics. Expected May 2029'],
       ['Interests', 'Smart manufacturing, Industrial automation, Robotics, Supply chain analytics, Wearable robotics'],
       ['Languages', 'English, Spanish, Hindi, Mandarin, Konkani']
     ],
@@ -57,11 +72,12 @@ window.PORTFOLIO = {
   experience: [
     {
       id: 'ampf',
+      logo: 'Images/logos/gatech.png',
       group: 'Research & Internships',
       title: 'Robotic Inspection, Handling & Safeguarding for Metal AM',
       role: 'Research Assistant (Paid)',
       org: 'Advanced Manufacturing Pilot Facility (AMPF), Georgia Tech',
-      date: 'Aug 2026 – Present', location: 'Atlanta, GA',
+      date: 'August 2026 – Present', location: 'Atlanta, GA',
       cat: 'Industry 4.0, Robotics, Metrology',
       context: 'AMPF is an Industry 4.0 pilot facility automating AMR-driven production and testing of metal additive-manufactured (AM) samples. Each sample needs to be inspected, handled and moved safely between robot cells before X-ray CT.',
       why: 'Scanning each sample against its CAD right on the robot catches geometry problems before the sample goes to slower, more expensive X-ray CT, and proper safeguarding lets robots and people share the cell safely.',
@@ -91,7 +107,7 @@ window.PORTFOLIO = {
       title: 'Full Digital-Manufacturing Chain: CAD to Live Robots',
       role: 'Smart Manufacturing Engineering Intern',
       org: 'Siemens Centre of Excellence, VNIT Nagpur',
-      date: 'Jul – Aug 2026', location: 'Nagpur, India',
+      date: 'July – August 2026', location: 'Nagpur, India',
       cat: 'Smart Manufacturing, Industry 4.0',
       context: 'A two-month intensive covering design, simulation, CNC, robotics and inspection, certified by VNIT Nagpur, Siemens and 3D Engineering Automation LLP.',
       roleText: 'Delivered CAD/CAM/CAE/PLM workflows for healthtech and automotive use cases, then took simulated robot programs onto physical ABB and KUKA hardware.',
@@ -116,11 +132,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'harvard',
+      logo: 'Images/logos/harvard.jpg',
       group: 'Research & Internships',
       title: 'Energy Data Pipelines & Leadership Dashboards',
       role: 'Technical Product Intern',
       org: 'Harvard Undergraduate Ventures–TECH, Rayfield Systems',
-      date: 'Jul – Aug 2025', location: 'Remote',
+      date: 'July – August 2025', location: 'Remote',
       cat: 'Data, Product, Energy',
       context: 'Rayfield Systems, an AI/ML startup, works with energy datasets that arrive in many formats, and its AI-generated reports needed to reach leadership in a usable form. The program accepts under 15% of applicants.',
       why: 'Forecasts are only as good as the data going into them; clean, validated inputs and clear visuals are what turn a model\u2019s output into a decision leadership can act on.',
@@ -143,11 +160,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'tradelink',
+      logo: 'Images/logos/tradelink.jpg',
       group: 'Research & Internships',
       title: 'Purchase-Order Automation: KPI Experiment & UX',
       role: 'Supply Chain Automation Intern',
       org: 'TradeLink Technologies',
-      date: 'May – Jun 2025', location: 'Hong Kong',
+      date: 'May – June 2025', location: 'Hong Kong',
       cat: 'Supply Chain Automation, Industry 4.0',
       context: 'TradeLink is a Hong Kong supply-chain automation and Industry 4.0 firm working with ERP/WMS, RFID-based purchase-order tracking and GS1 standards.',
       why: 'Purchase-order processing is repetitive and error-prone; putting hard numbers on how much effort AI saves is what convinces funders and customers to adopt automation, and software only saves time if people find it easy to use.',
@@ -171,11 +189,12 @@ window.PORTFOLIO = {
   projects: [
     {
       id: 'iise',
+      logo: 'Images/logos/gatech.png',
       group: 'Competitions',
       title: 'Launch Demand Forecast & Purchase Plan for 170 Stores',
       role: 'Team Lead',
       org: 'IISE x UCC Case Competition (901 Partners), Georgia Tech',
-      date: 'Nov 2026', badge: '1st of 35 teams, $500 prize',
+      date: 'November 2026', badge: '1st of 35 teams, $500 prize',
       team: 'Team Scoop Strategy',
       cat: 'Supply Chain Analytics, Forecasting',
       context: 'Jeremiah\u2019s Italian Ice launched a Cheesecake limited-time offer (LTO) across 170 stores for 13 weeks. The base ingredient is bought once, before launch, with no reorders, then either shipped to stores or held at 7 regional warehouses (Opcos); 19 stores had never run an LTO.',
@@ -246,11 +265,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'wear',
+      logo: 'Images/logos/gatech.png',
       group: 'Student Teams & Leadership',
       title: 'Leading Mechanical for a Wearable-Robotics Club: Prosthetics to Exoskeleton',
       role: 'Mechanical Subteam Lead & Founding Member',
       org: 'WEAR@GT, Georgia Tech Wearable Robotics',
-      date: 'Sep 2026 – Present',
+      date: 'September 2026 – Present',
       cat: 'Wearable Robotics, Team Leadership',
       context: 'WEAR@GT is a new Georgia Tech wearable-robotics club. New members onboard by building open-source prosthetic hands and arms in mentor-led groups; in spring 2027 the club builds a lower-body exoskeleton for a competition modeled on the University of Michigan\u2019s ACE challenge.',
       why: 'A new club\u2019s first build sets its habits. Shared purchasing, safety rules and a \u201cmodify it, don\u2019t just copy it\u201d standard turn 45 new members into engineers ready to take on a real exoskeleton competition.',
@@ -275,11 +295,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'vip',
+      logo: 'Images/logos/gatech.png',
       group: 'Student Teams & Leadership',
       title: 'Six-Axis AR4 Arm for Sheet-Metal Automation',
       role: 'Co-Lead',
       org: 'Intelligent Robotics for Assembly & Design VIP, Georgia Tech',
-      date: 'Aug 2026 – Present',
+      date: 'August 2026 – Present',
       cat: 'Robotics, Simulation, Team Operations',
       context: 'A Vertically Integrated Projects research team building a six-axis AR4 robotic arm (motors, controller, simulation) to automate sheet-metal processes, with NVIDIA Isaac Sim computer vision planned next.',
       roleText: 'Co-lead a 6-person team, continuing as co-lead in spring 2027. Mapping failure modes ahead of vision integration, learning Rhino and Grasshopper for a parametric arm simulation, and setting up team documentation and inventory.',
@@ -302,11 +323,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'solar',
+      logo: 'Images/logos/gatech.png',
       group: 'Student Teams & Leadership',
       title: 'Collapsible Solar Array: From Demo to Product',
       role: 'Solar Array Co-Lead (Electrical) and Data Lead',
       org: 'Energy@GT, Georgia Tech',
-      date: 'Sep 2026 – Present',
+      date: 'September 2026 – Present',
       cat: 'Energy, Electrical, Data',
       context: 'Energy@GT is building a collapsible solar array, with a demo planned for early February 2027.',
       why: 'A demo proves an array works; a product people will actually use needs a clear dashboard, an easy setup and parts that scale. The data side turns raw panel readings into output and efficiency numbers that show whether the design is worth deploying.',
@@ -329,11 +351,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'energyhack',
+      logo: 'Images/logos/gatech.png',
       group: 'Student Teams & Leadership',
       title: 'EnergyHack@GT 2027: Judges and Sponsors',
       role: 'Judging & Sponsor Co-Head',
       org: 'EnergyHack@GT 2027, Energy@GT',
-      date: 'Nov 2026 – Present',
+      date: 'November 2026 – Present',
       cat: 'Event Leadership, Industry Relations',
       context: 'EnergyHack@GT is Energy@GT\u2019s energy-focused hackathon, running January 22\u201324, 2027.',
       why: 'A hackathon is only as good as the people who judge it and the companies that back it: credible judges give teams real feedback, and sponsors fund the prizes and bring the problems.',
@@ -348,11 +371,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'tesla',
+      logo: 'Images/logos/gatech.png',
       group: 'Competitions',
       title: 'Tesla Sourcing Strategy under Uncertainty',
       role: 'Team Lead',
       org: 'Tesla Supply Chain Case Competition (SCLO), Georgia Tech',
-      date: 'Oct 2026',
+      date: 'October 2026',
       cat: 'Sourcing, Risk Modeling',
       context: 'An end-to-end sourcing-strategy case for Tesla, weighing supplier risk, cost and lead-time trade-offs.',
       roleText: 'Led a 3-person team (Team 14) and built the Monte Carlo model behind the recommendation.',
@@ -371,11 +395,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'hackgt',
+      logo: 'Images/logos/gatech.png',
       group: 'Competitions',
       title: 'ScamShield-AI: Real-Time Scam-Call Protection',
       role: 'Product Lead',
       org: 'HackGT 13, Georgia Tech',
-      date: 'Sep 2026',
+      date: 'September 2026',
       cat: 'Product, Full-Stack, AI',
       context: 'A 36-hour hackathon build: real-time protection against scam phone calls.',
       roleText: 'Product lead of a 4-person team. Wrote the spec, API contract and build plan, and directed AI coding agents (Cursor, Claude Code) to deliver the app.',
@@ -414,22 +439,49 @@ window.PORTFOLIO = {
       media: []
     },
     {
+      id: 'bcg',
+      group: 'Competitions',
+      title: 'Thinking Like a Strategy Consultant: Revenue Growth Ideas',
+      role: 'Participant',
+      org: 'BCG: Introduction to Strategy Consulting Job Simulation (Forage)',
+      date: '',
+      cat: 'Strategy, Problem Solving',
+      context: 'A Boston Consulting Group job simulation on Forage: help a fictional luxury clothing company grow sales revenue, using the way BCG consultants approach a problem.',
+      why: 'Good engineering and operations work starts the same way good strategy does: question the assumptions everyone takes for granted before generating solutions.',
+      roleText: 'Worked through BCG\u2019s tasks on challenging mental models, then generated and pressure-tested ideas to grow the client\u2019s revenue.',
+      result: 'Completed the simulation and earned BCG\u2019s Forage certificate.',
+      metrics: [],
+      bullets: [
+        'Completed BCG\u2019s Introduction to Strategy Consulting job simulation (Forage): challenged the assumptions behind a luxury clothing client\u2019s current thinking & generated ideas to grow its sales revenue.'
+      ],
+      tools: ['Brainstorming & ideation', 'Critical thinking', 'Creative problem solving'],
+      media: []
+    },
+    {
       id: 'sclo',
+      logo: 'Images/logos/gatech.png',
       group: 'Student Teams & Leadership',
-      title: 'Corporate Outreach for Georgia Tech\u2019s Supply Chain Club',
+      title: 'Bringing Supply-Chain Employers to Georgia Tech Students',
       role: 'Corporate Outreach Officer',
       org: 'Supply Chain & Logistics Organization (SCLO), Georgia Tech',
-      date: 'Spring 2027',
+      date: 'November 2026 – Present',
       cat: 'Industry Relations, Leadership',
-      context: 'SCLO connects Georgia Tech students with supply-chain employers through speaker sessions, Supply Chain Day, case competitions and pro bono projects.',
-      why: 'Every speaker session, case competition and project starts with a company saying yes to a first call.',
-      roleText: 'One of three outreach officers bringing companies to SCLO: first a call, then a speaker or info session, then case competitions, pro bono projects and possibly sponsorship.',
-      result: 'Details to come.',
-      metrics: [],
-      bullets: [],
-      tools: ['Power Automate', 'Excel', 'CareerShift'],
-      media: [],
-      pending: true   // details to be added; shown as a short card until filled in
+      context: 'SCLO is Georgia Tech\u2019s supply chain and logistics student organization. Its speaker sessions, Supply Chain Day, case competitions and semester-long pro bono projects all depend on companies agreeing to take part.',
+      why: 'Every speaker session, case competition and pro bono project starts with a company saying yes to a first call, so outreach is the pipeline that feeds everything else the club offers students.',
+      roleText: 'I am one of three outreach officers. I source company contacts, prioritizing Georgia Tech alumni at top supply-chain companies, and I am building a Power Automate and Excel mail-merge pipeline so each officer can send personalized outreach in batches from the club\u2019s shared mailbox.',
+      result: 'Outreach pipeline being built for spring 2027, working up a ladder from a first call to speaker sessions, case competitions, pro bono projects and sponsorship.',
+      metrics: [
+        { n: '3', l: 'outreach officers, each with assigned contacts' },
+        { n: '1st', l: 'priority: top supply-chain companies' }
+      ],
+      bullets: [
+        'Selected as one of three Corporate Outreach Officers for Georgia Tech\u2019s Supply Chain & Logistics Organization after an interview.',
+        'Sourcing company contacts through CareerShift, prioritizing Georgia Tech alumni at top supply-chain companies, with LinkedIn as a secondary channel.',
+        'Building a Power Automate and Excel mail-merge pipeline so officers can send personalized outreach in batches from the club\u2019s shared mailbox.',
+        'Working companies up an engagement ladder: a first call, then a speaker or info session (weekly meetings, Supply Chain Day), then case competitions, semester-long pro bono projects and sponsorship.'
+      ],
+      tools: ['Power Automate', 'Excel mail merge', 'CareerShift', 'LinkedIn', 'Outlook'],
+      media: []
     }
   ],
 
@@ -473,7 +525,7 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'adirondack', group: 'Earlier Work', title: 'Modernist Adirondack Home: Full CAD House Plan', org: 'Northwood School', date: 'Mar – May 2024',
+      id: 'adirondack', group: 'Earlier Work', title: 'Modernist Adirondack Home: Full CAD House Plan', org: 'Northwood School', date: 'March – May 2024',
       cat: 'Architectural CAD',
       context: 'Design a complete three-storey home from scratch using CAD only.',
       roleText: 'Independently produced dimensioned floor plans, a 3D model with interiors, section views and a cardboard scale model.',
@@ -534,8 +586,8 @@ window.PORTFOLIO = {
   education: [
     {
       school: 'Georgia Institute of Technology', place: 'Atlanta, GA', date: 'Expected May 2029',
-      degree: 'B.S. Industrial & Systems Engineering (#1 IE program, U.S. News)',
-      notes: 'Sophomore standing (32 credits), Member: IISE, SCLO, VIP: Intelligent Robotics for Assembly & Design',
+      degree: 'B.S. Industrial & Systems Engineering (#1 IE program, U.S. News); concentration in Supply Chain Engineering, minor in Robotics',
+      notes: 'Sophomore standing. Member of IISE and SCLO; VIP: Intelligent Robotics for Assembly & Design',
       logo: 'Images/logos/gatech.png'
     },
     {
@@ -552,6 +604,7 @@ window.PORTFOLIO = {
     { t: 'Lean Six Sigma Yellow Belt', s: 'DMAIC, 7 wastes', st: 'Earned' },
     { t: 'IEEE SSCS Micro-Controller Proficiency Certificate', s: 'IEEE Solid-State Circuits Society', st: 'Earned' },
     { t: 'MathWorks (edX): Drone Simulation', s: 'MATLAB & Simulink', st: 'Earned' },
+    { t: 'Semiconductors for Beginners', s: 'National University of Singapore (edX): crystal lattices, bandgaps, semiconductors and solar cells', st: 'Earned' },
     { t: 'SolidWorks CSWA & CSWP', s: 'Dassault Systèmes', st: 'In progress' }
   ],
 

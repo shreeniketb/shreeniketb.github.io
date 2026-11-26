@@ -84,11 +84,29 @@
   }
 
   /* ---------- home ---------- */
+  function logoEl(it) {
+    if (it.logo) return '<img class="tl-logo" src="' + u(it.logo) + '" alt="">';
+    var ini = (it.org || '').replace(/[^A-Za-z ]/g, ' ').split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('');
+    return '<span class="tl-logo tl-ini">' + esc(ini) + '</span>';
+  }
+  function tlItem(e) {
+    return '<li>' + logoEl(e) + '<div class="tl-when">' + esc(e.date) + (e.location ? '<span>' + esc(e.location) + '</span>' : '') + '</div>' +
+      '<div class="tl-body"><h3>' + esc(e.role) + '</h3><div class="org">' + esc(e.org) + '</div><p>' + esc(e.result) + '</p>' +
+      '<a href="' + link(e) + '">Read more →</a></div></li>';
+  }
+  function resumeMenu(p, cls) {
+    if (!p.resumes || !p.resumes.length) return '';
+    return '<details class="resume-menu ' + (cls || '') + '"><summary class="btn ghost">Resume ▾</summary><div class="menu">' +
+      p.resumes.map(function (r) { return '<a href="' + u(r.src) + '" target="_blank" rel="noopener">' + esc(r.label) + '</a>'; }).join('') + '</div></details>';
+  }
+  function band(id, alt, inner) { return '<section id="' + id + '" class="band' + (alt ? ' alt' : '') + '"><div class="wrap">' + inner + '</div></section>'; }
   function home() {
     var p = P.person;
     var logos = (p.logos || []).map(function (l) { return '<img src="' + u(l.src) + '" alt="' + esc(l.name) + '" title="' + esc(l.name) + '">'; }).join('');
-    var html = header() + '<main class="wrap">' +
-      '<section class="hero" style="padding-top:24px">' +
+    var leadIds = ['wear', 'vip', 'solar', 'energyhack', 'sclo'];
+    var lead = P.projects.filter(function (x) { return leadIds.indexOf(x.id) >= 0; });
+    var html = header() + '<main>' +
+      '<section class="hero"><div class="wrap">' +
       '<div class="banner"><img src="' + u(p.banner) + '" alt="Tech Tower, Georgia Tech"></div>' +
       '<div class="hero-row"><img class="avatar" src="' + u(p.photo) + '" alt="' + esc(p.name) + '">' +
       '<div class="hero-id"><h1>' + esc(p.name) + '</h1><p class="headline">' + esc(p.headline) + '</p></div></div>' +
@@ -96,43 +114,40 @@
       '<div class="btns"><a class="btn" href="#work">See my work</a>' +
       '<a class="btn ghost" href="mailto:' + p.email + '">Email</a>' +
       '<a class="btn ghost" href="https://' + p.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>' +
-      (p.resume ? '<a class="btn ghost" href="' + u(p.resume) + '" target="_blank" rel="noopener">Resume</a>' : '') +
-      '</div></div>' +
+      resumeMenu(p) + '</div></div>' +
       '<dl class="facts">' + p.facts.map(function (f) { return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join('') + '</dl></div>' +
-      '<div class="stats">' + p.stats.map(function (s) { return '<div class="stat"><b>' + s.n + '</b><span>' + s.l + '</span></div>'; }).join('') + '</div>' +
-      '</section>' +
-      (logos ? '<section style="padding-top:44px"><div class="logos">' + logos + '</div></section>' : '') +
+      (logos ? '<div class="logos">' + logos + '</div>' : '') +
+      '</div></section>' +
+      '<section class="statband"><div class="wrap stats">' + p.stats.map(function (s) { return '<div class="stat"><b>' + s.n + '</b><span>' + s.l + '</span></div>'; }).join('') + '</div></section>' +
 
-      '<section id="work"><div class="sec-head"><div><h2>Work</h2><p class="muted" style="margin:0">Click any project for the full story, numbers and photos.</p></div>' +
-      '<div class="filters" role="group" aria-label="Filter projects"><button aria-pressed="true" data-f="all">All</button>' +
-      GROUPS.map(function (g) { return '<button aria-pressed="false" data-f="' + esc(g) + '">' + esc(g) + '</button>'; }).join('') + '</div></div>' +
-      '<div class="grid">' + ALL.map(card).join('') + '</div></section>' +
+      band('work', false, '<div class="sec-head"><div><h2>Work</h2><p class="muted" style="margin:0">Click any project for the full story, numbers and photos.</p></div>' +
+        '<div class="filters" role="group" aria-label="Filter projects"><button aria-pressed="true" data-f="all">All</button>' +
+        GROUPS.map(function (g) { return '<button aria-pressed="false" data-f="' + esc(g) + '">' + esc(g) + '</button>'; }).join('') + '</div></div>' +
+        '<div class="grid">' + ALL.map(card).join('') + '</div>') +
 
-      '<section id="experience"><div class="sec-head"><h2>Experience</h2></div><ol class="timeline">' +
-      P.experience.map(function (e) {
-        return '<li><div><div class="when">' + esc(e.date) + '</div><div class="where">' + esc(e.location || '') + '</div></div>' +
-          '<div><h3>' + esc(e.role) + '</h3><div class="org">' + esc(e.org) + '</div><p class="muted">' + esc(e.result) + '</p>' +
-          '<a href="' + link(e) + '">Read more →</a></div></li>';
-      }).join('') + '</ol></section>' +
+      band('experience', true, '<div class="sec-head"><h2>Experience</h2></div>' +
+        '<h3 class="tl-group">Research and internships</h3><ol class="timeline">' + P.experience.map(tlItem).join('') + '</ol>' +
+        '<h3 class="tl-group">Leadership</h3><ol class="timeline">' + lead.map(tlItem).join('') + '</ol>') +
 
-      '<section id="about"><div class="sec-head"><h2>About</h2></div><div class="two"><div>' +
-      p.about.map(function (t) { return '<p>' + t + '</p>'; }).join('') +
-      (p.strengths && p.strengths.length ? '<div class="sw"><div><h3>Strengths</h3><ul>' + p.strengths.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul></div>' +
-        '<div><h3>Weaknesses</h3><ul>' + (p.weaknesses || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul></div></div>' : '') +
-      '</div><div class="edu">' + P.education.map(function (e) {
-        return '<div class="item"><img src="' + u(e.logo) + '" alt=""><div><h3>' + esc(e.school) + '</h3><div>' + esc(e.degree) + '</div>' +
-          '<div class="muted" style="font-size:.95rem">' + esc(e.date) + ', ' + esc(e.place) + '</div><div class="muted" style="font-size:.95rem">' + esc(e.notes) + '</div></div></div>';
-      }).join('') + '</div></div></section>' +
+      band('about', false, '<div class="sec-head"><h2>About</h2></div><div class="two"><div>' +
+        p.about.map(function (t) { return '<p>' + t + '</p>'; }).join('') +
+        (p.strengths && p.strengths.length ? '<div class="sw"><div class="sw-card"><h3>Strengths</h3><ul>' + p.strengths.map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul></div>' +
+          '<div class="sw-card"><h3>Weaknesses</h3><ul>' + (p.weaknesses || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('') + '</ul></div></div>' : '') +
+        '</div><div class="edu"><h3 class="tl-group" style="margin-top:0">Education</h3>' + P.education.map(function (e) {
+          return '<div class="item"><img src="' + u(e.logo) + '" alt=""><div><h3>' + esc(e.school) + '</h3><div>' + esc(e.degree) + '</div>' +
+            '<div class="muted small">' + esc(e.date) + ', ' + esc(e.place) + '</div><div class="muted small">' + esc(e.notes) + '</div></div></div>';
+        }).join('') + '</div></div>') +
 
-      '<section id="skills"><div class="sec-head"><h2>Skills and certifications</h2></div><div class="cols">' +
-      P.skills.map(function (s) { return '<div class="block"><h3>' + esc(s.h) + '</h3><p>' + s.items.map(esc).join(', ') + '</p></div>'; }).join('') +
-      '</div><h3 style="margin:26px 0 6px">Certifications</h3><ul class="certs">' +
-      P.certifications.map(function (c) { return '<li><b>' + esc(c.t) + '</b>' + (c.st !== 'Earned' ? '<span class="status">' + esc(c.st) + '</span>' : '') + '<small>' + esc(c.s) + '</small></li>'; }).join('') +
-      '</ul></section>' +
+      band('skills', true, '<div class="sec-head"><h2>Skills and certifications</h2></div><div class="skill-grid">' +
+        P.skills.map(function (s) { return '<div class="skill-card"><h3>' + esc(s.h) + '</h3><ul>' + s.items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>'; }).join('') +
+        '</div><h3 class="tl-group">Certifications</h3><ul class="certs">' +
+        P.certifications.map(function (c) { return '<li><b>' + esc(c.t) + '</b>' + (c.st !== 'Earned' ? '<span class="status">' + esc(c.st) + '</span>' : '') + '<small>' + esc(c.s) + '</small></li>'; }).join('') +
+        '</ul>') +
 
-      '<section id="honors"><div class="sec-head"><h2>Earlier honors</h2></div><div class="honors">' +
-      P.honors.map(function (h) { return '<div class="honor"><div class="yr">' + esc(h.l) + '</div><h3>' + esc(h.t) + '</h3><p>' + esc(h.s) + '</p></div>'; }).join('') +
-      '</div></section>' + contact() + '</main>' + footer();
+      band('honors', false, '<div class="sec-head"><h2>Earlier honors</h2></div><div class="honors">' +
+        P.honors.map(function (h) { return '<div class="honor"><div class="yr">' + esc(h.l) + '</div><h3>' + esc(h.t) + '</h3><p>' + esc(h.s) + '</p></div>'; }).join('') +
+        '</div>' + contact()) +
+      '</main>' + footer();
     document.body.innerHTML = html;
 
     var btns = document.querySelectorAll('.filters button');
