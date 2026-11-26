@@ -274,7 +274,7 @@ window.PORTFOLIO = {
       ],
       bullets: [
         'Co-lead a 6-person team building a six-axis AR4 robotic arm (motors, controller, simulation) to automate sheet-metal processes; mapping failure modes ahead of Isaac Sim computer-vision integration.',
-        'All six AR4 joints now assembled, readying the arm for motion testing.',
+        'All six AR4 joints now assembled.',
         'Starting a Rhino & Grasshopper parametric AR4 simulation (URDF-based inverse kinematics) that checks joint range & collision clearance before physical runs.',
         'Cut build search time & part mix-ups by reconciling kit vs. BOM, flagging 7 missing part categories, & labeling hardware.',
         'Implemented SOPs for documentation, change logs, & inventory tracking, giving the 6-person team traceable progress.',
