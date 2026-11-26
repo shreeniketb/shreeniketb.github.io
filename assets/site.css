@@ -120,10 +120,17 @@ section{padding:72px 0 0}
 .timeline{list-style:none;margin:0;padding:0}
 .tl-group{font-size:1.15rem;margin:28px 0 6px;color:var(--ink)}
 .timeline{position:relative}
-.timeline li{display:grid;grid-template-columns:64px 200px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.timeline li{display:grid;grid-template-columns:76px 190px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
 .timeline li:last-child{border-bottom:0}
-.tl-logo{width:56px;height:56px;border-radius:10px;object-fit:contain;background:#fff;border:1px solid var(--rule);padding:5px}
-.tl-ini{display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:1.2rem;color:#fff;background:var(--navy);border-color:var(--navy)}
+.tl-logo{width:76px;height:56px;border-radius:10px;object-fit:contain;background:#fff;border:1px solid var(--rule);padding:5px}
+.tl-ini{display:grid;place-items:center;font-family:var(--sans);font-weight:700;font-size:.95rem;color:#fff;background:var(--navy);border-color:var(--navy);letter-spacing:.02em}
+.tl-ini.long{font-size:.72rem}
+.now{margin-top:26px;padding-top:18px;border-top:1px solid var(--rule)}
+.now h3{font-size:1.05rem;margin-bottom:8px}
+.now ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:6px 22px}
+.now li{line-height:1.3;padding:4px 0}
+.now a{font-weight:600;text-decoration:none}
+.now span{display:block;color:var(--ink-2);font-size:.9rem}
 .tl-when{font-weight:700;color:var(--ink);padding-top:3px}
 .tl-when span{display:block;font-weight:400;color:var(--ink-2);font-size:.95rem}
 .tl-body h3{margin-bottom:2px}
@@ -142,7 +149,8 @@ section{padding:72px 0 0}
 .skill-card li{margin:3px 0;color:var(--ink)}
 .skill-card li::marker{color:var(--accent)}
 .sw-card{background:var(--band);border:1px solid var(--rule);border-radius:var(--r);padding:16px 18px}
-.sw-card li{margin:4px 0}
+.sw-card li{margin:4px 0;font-weight:600}
+.sw-card ul{padding-left:1.1rem;margin:0}
 .resume-menu{position:relative}
 .resume-menu summary{list-style:none;cursor:pointer}
 .resume-menu summary::-webkit-details-marker{display:none}

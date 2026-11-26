@@ -86,6 +86,7 @@
   /* ---------- home ---------- */
   function logoEl(it) {
     if (it.logo) return '<img class="tl-logo" src="' + u(it.logo) + '" alt="">';
+    if (it.ini) return '<span class="tl-logo tl-ini' + (it.ini.length > 3 ? ' long' : '') + '">' + esc(it.ini) + '</span>';
     var ini = (it.org || '').replace(/[^A-Za-z ]/g, ' ').split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w[0]; }).join('');
     return '<span class="tl-logo tl-ini">' + esc(ini) + '</span>';
   }
@@ -105,6 +106,8 @@
     var logos = (p.logos || []).map(function (l) { return '<img src="' + u(l.src) + '" alt="' + esc(l.name) + '" title="' + esc(l.name) + '">'; }).join('');
     var leadIds = ['wear', 'vip', 'solar', 'energyhack', 'sclo'];
     var lead = P.projects.filter(function (x) { return leadIds.indexOf(x.id) >= 0; });
+    var comps = P.projects.filter(function (x) { return x.group === 'Competitions'; });
+    var now = [].concat(P.experience, P.projects).filter(function (x) { return /Present/.test(x.date || ''); });
     var html = header() + '<main>' +
       '<section class="hero"><div class="wrap">' +
       '<div class="banner"><img src="' + u(p.banner) + '" alt="Tech Tower, Georgia Tech"></div>' +
@@ -114,7 +117,10 @@
       '<div class="btns"><a class="btn" href="#work">See my work</a>' +
       '<a class="btn ghost" href="mailto:' + p.email + '">Email</a>' +
       '<a class="btn ghost" href="https://' + p.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>' +
-      resumeMenu(p) + '</div></div>' +
+      resumeMenu(p) + '</div>' +
+      '<div class="now"><h3>Right now</h3><ul>' + now.map(function (x) {
+        return '<li><a href="' + link(x) + '">' + esc(x.role.split(' (')[0]) + '</a><span>' + esc(x.org.split(',')[0]) + '</span></li>';
+      }).join('') + '</ul></div></div>' +
       '<dl class="facts">' + p.facts.map(function (f) { return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join('') + '</dl></div>' +
       (logos ? '<div class="logos">' + logos + '</div>' : '') +
       '</div></section>' +
@@ -127,7 +133,8 @@
 
       band('experience', true, '<div class="sec-head"><h2>Experience</h2></div>' +
         '<h3 class="tl-group">Research and internships</h3><ol class="timeline">' + P.experience.map(tlItem).join('') + '</ol>' +
-        '<h3 class="tl-group">Leadership</h3><ol class="timeline">' + lead.map(tlItem).join('') + '</ol>') +
+        '<h3 class="tl-group">Leadership</h3><ol class="timeline">' + lead.map(tlItem).join('') + '</ol>' +
+        '<h3 class="tl-group">Competitions and programs</h3><ol class="timeline">' + comps.map(tlItem).join('') + '</ol>') +
 
       band('about', false, '<div class="sec-head"><h2>About</h2></div><div class="two"><div>' +
         p.about.map(function (t) { return '<p>' + t + '</p>'; }).join('') +

@@ -32,22 +32,9 @@ window.PORTFOLIO = {
       { label: 'Mechanical design & robotics', src: 'assets/docs/Shreeniket_Bhat_Resume_Design_Robotics.pdf' },
       { label: 'Data, AI & analytics', src: 'assets/docs/Shreeniket_Bhat_Resume_Data_Analytics.pdf' }
     ],
-    logos: [
-      { name: 'Georgia Tech', src: 'Images/logos/gatech.png' },
-      { name: 'Harvard Undergraduate Ventures', src: 'Images/logos/harvard.jpg' },
-      { name: 'TradeLink Technologies', src: 'Images/logos/tradelink.jpg' },
-      { name: 'Stamford American School', src: 'Images/logos/stamford.png' }
-    ],
-    strengths: [                         // drafts: rewrite in your own words any time
-      'I bring structure to messy group work: one BOM, clear owners, written SOPs and meeting minutes people actually read.',
-      'Comfortable starting from zero. I taught myself Java for FRC and Python data pipelines on the job.',
-      'I can move between the shop floor and the spreadsheet, from robot cells and fixtures to newsvendor models and Monte Carlo runs.'
-    ],
-    weaknesses: [
-      'I say yes to too many things at once, so I have had to get strict about calendars and priorities.',
-      'I over-document. A two-line update sometimes turns into a full report.',
-      'My software depth is still growing: ROS and larger codebases are next on my list.'
-    ],
+    logos: [],                           // top logo strip disabled; logos show in the Experience timeline
+    strengths: ['Say yes to everything', 'Efficient LLM user', 'Interdisciplinary approach', 'Leadership conviction'],
+    weaknesses: ['Say yes to too much', 'Reflecting', 'Good food'],
     intro: 'I’m an Industrial & Systems Engineering student at Georgia Tech who likes making machines, processes and people work better together. I do paid research at Georgia Tech’s Advanced Manufacturing Pilot Facility, co-lead robotics and energy teams, and use data to make supply-chain decisions.',
     about: [
       'I was born in India, grew up in Hong Kong, and now study <strong>Industrial & Systems Engineering at Georgia Tech</strong> (#1 IE program, U.S. News). Most of my work sits where hardware meets operations: robotic cells, inspection, fixtures and safety on one side; forecasting, sourcing and process improvement on the other.',
@@ -72,7 +59,7 @@ window.PORTFOLIO = {
   experience: [
     {
       id: 'ampf',
-      logo: 'Images/logos/gatech.png',
+      logo: 'assets/img/logos/ampf.png',
       group: 'Research & Internships',
       title: 'Robotic Inspection, Handling & Safeguarding for Metal AM',
       role: 'Research Assistant (Paid)',
@@ -102,7 +89,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'siemens',
+      id: 'siemens', logo: 'assets/img/logos/siemens.png',
       group: 'Research & Internships',
       title: 'Full Digital-Manufacturing Chain: CAD to Live Robots',
       role: 'Smart Manufacturing Engineering Intern',
@@ -189,7 +176,7 @@ window.PORTFOLIO = {
   projects: [
     {
       id: 'iise',
-      logo: 'Images/logos/gatech.png',
+      logo: 'assets/img/logos/901partners.png',
       group: 'Competitions',
       title: 'Launch Demand Forecast & Purchase Plan for 170 Stores',
       role: 'Team Lead',
@@ -223,7 +210,7 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'aakruti',
+      id: 'aakruti', logo: 'assets/img/logos/dassault.png',
       group: 'Competitions',
       title: 'AirShield: Solar-Powered Air-Filtration Wall',
       role: 'Team & CAD Lead',
@@ -265,7 +252,7 @@ window.PORTFOLIO = {
     },
     {
       id: 'wear',
-      logo: 'Images/logos/gatech.png',
+      logo: 'assets/img/logos/weargt.png',
       group: 'Student Teams & Leadership',
       title: 'Leading Mechanical for a Wearable-Robotics Club: Prosthetics to Exoskeleton',
       role: 'Mechanical Subteam Lead & Founding Member',
@@ -323,7 +310,7 @@ window.PORTFOLIO = {
     },
     {
       id: 'solar',
-      logo: 'Images/logos/gatech.png',
+      logo: 'assets/img/logos/energygt.png',
       group: 'Student Teams & Leadership',
       title: 'Collapsible Solar Array: From Demo to Product',
       role: 'Solar Array Co-Lead (Electrical) and Data Lead',
@@ -351,7 +338,7 @@ window.PORTFOLIO = {
     },
     {
       id: 'energyhack',
-      logo: 'Images/logos/gatech.png',
+      logo: 'assets/img/logos/energygt.png',
       group: 'Student Teams & Leadership',
       title: 'EnergyHack@GT 2027: Judges and Sponsors',
       role: 'Judging & Sponsor Co-Head',
@@ -370,8 +357,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'tesla',
-      logo: 'Images/logos/gatech.png',
+      id: 'tesla', ini: 'SCLO',
       group: 'Competitions',
       title: 'Tesla Sourcing Strategy under Uncertainty',
       role: 'Team Lead',
@@ -394,8 +380,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'hackgt',
-      logo: 'Images/logos/gatech.png',
+      id: 'hackgt', ini: 'HackGT',
       group: 'Competitions',
       title: 'ScamShield-AI: Real-Time Scam-Call Protection',
       role: 'Product Lead',
@@ -418,7 +403,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'forage',
+      id: 'forage', logo: 'assets/img/logos/siemens.png',
       group: 'Competitions',
       title: 'Wheel-Assembly Bottleneck & Layout Fix',
       role: 'Participant',
@@ -439,12 +424,12 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'bcg',
+      id: 'bcg', ini: 'BCG',
       group: 'Competitions',
       title: 'Thinking Like a Strategy Consultant: Revenue Growth Ideas',
       role: 'Participant',
       org: 'BCG: Introduction to Strategy Consulting Job Simulation (Forage)',
-      date: '',
+      date: 'July 2026',
       cat: 'Strategy, Problem Solving',
       context: 'A Boston Consulting Group job simulation on Forage: help a fictional luxury clothing company grow sales revenue, using the way BCG consultants approach a problem.',
       why: 'Good engineering and operations work starts the same way good strategy does: question the assumptions everyone takes for granted before generating solutions.',
@@ -458,8 +443,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'sclo',
-      logo: 'Images/logos/gatech.png',
+      id: 'sclo', ini: 'SCLO',
       group: 'Student Teams & Leadership',
       title: 'Bringing Supply-Chain Employers to Georgia Tech Students',
       role: 'Corporate Outreach Officer',
@@ -488,7 +472,7 @@ window.PORTFOLIO = {
   /* ---------------- EARLIER WORK (high school) ---------------- */
   earlier: [
     {
-      id: 'vision', group: 'Earlier Work', title: 'VisionXcelerate: AR Smart Glasses for Dementia', org: 'NYAS Junior Academy', date: '2024',
+      id: 'vision', logo: 'Images/logos/nyas.PNG', group: 'Earlier Work', title: 'VisionXcelerate: AR Smart Glasses for Dementia', org: 'NYAS Junior Academy', date: '2024',
       cat: 'Wearables, Product Design', badge: 'Winner, 1st of 170 teams',
       context: 'Dementia patients lose independence as memory declines, and most assistive tech reacts after something goes wrong.',
       roleText: 'Led CAD design, research, and the embedded IoT hardware and software stack; designed the AR interface concept for real-time memory cues.',
@@ -497,7 +481,7 @@ window.PORTFOLIO = {
       media: [{ src: 'assets/img/visionx-glasses.jpg', cap: 'Smart-glasses CAD concept' }]
     },
     {
-      id: 'gripper', group: 'Earlier Work', title: 'Pneumatic Soft Robotic Gripper for Fruit Harvesting', org: 'Northwood School, Lake Placid', date: '2024',
+      id: 'gripper', logo: 'assets/img/logos/northwood.png', group: 'Earlier Work', title: 'Pneumatic Soft Robotic Gripper for Fruit Harvesting', org: 'Northwood School, Lake Placid', date: '2024',
       cat: 'Soft Robotics, Biomimicry', badge: 'Lake Placid STEM Exhibition',
       context: 'Rigid grippers bruise soft produce; small farms need compliant, low-cost alternatives, a problem I saw in rural Indian agriculture.',
       roleText: 'Self-led, end-to-end: CAD, 3D-printed molds, silicone casting, Arduino-controlled pneumatics, and testing.',
@@ -512,7 +496,7 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'frc', group: 'Earlier Work', title: 'FRC Robot: Mechanical Lead & Autonomous Gyro-Drive', org: 'Northwood School FRC Team', date: '2024',
+      id: 'frc', logo: 'assets/img/logos/northwood.png', group: 'Earlier Work', title: 'FRC Robot: Mechanical Lead & Autonomous Gyro-Drive', org: 'Northwood School FRC Team', date: '2024',
       cat: 'Robotics, Controls', badge: '3rd, South Florida Regional',
       context: 'FRC robots drift in the 15-second autonomous period; the team had no experienced programmer.',
       roleText: 'Mechanical Lead on the team; also taught myself Java and wrote the gyro-drive autonomous routine that self-corrects heading.',
@@ -525,7 +509,7 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'adirondack', group: 'Earlier Work', title: 'Modernist Adirondack Home: Full CAD House Plan', org: 'Northwood School', date: 'March – May 2024',
+      id: 'adirondack', logo: 'assets/img/logos/northwood.png', group: 'Earlier Work', title: 'Modernist Adirondack Home: Full CAD House Plan', org: 'Northwood School', date: 'March – May 2024',
       cat: 'Architectural CAD',
       context: 'Design a complete three-storey home from scratch using CAD only.',
       roleText: 'Independently produced dimensioned floor plans, a 3D model with interiors, section views and a cardboard scale model.',
@@ -540,7 +524,7 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'studyunit', group: 'Earlier Work', title: 'Portable Study Unit: Electronic Product Design', org: 'King George V School (IGCSE DT)', date: '2023',
+      id: 'studyunit', logo: 'assets/img/logos/kgv.png', group: 'Earlier Work', title: 'Portable Study Unit: Electronic Product Design', org: 'King George V School (IGCSE DT)', date: '2023',
       cat: 'Product Design, Electronics', badge: 'Highest in Asia, IGCSE DT',
       context: 'Small Hong Kong homes make it hard for students and remote workers to keep an organised, ventilated workspace.',
       roleText: 'Ran the full design process: client research, CAD, engineering drawings, electronics (LDR, thermistor, cooling fan) and manufacture.',
@@ -562,7 +546,7 @@ window.PORTFOLIO = {
       media: [], pdf: 'pdfs/gametheory_slides.pdf'
     },
     {
-      id: 'truss', group: 'Earlier Work', title: 'Popsicle Warren Truss Bridge', org: 'Northwood School', date: '2024',
+      id: 'truss', logo: 'assets/img/logos/northwood.png', group: 'Earlier Work', title: 'Popsicle Warren Truss Bridge', org: 'Northwood School', date: '2024',
       cat: 'Structural Engineering',
       context: 'Maximise load capacity of a popsicle-stick bridge on a fixed materials budget.',
       roleText: 'Chose a Warren truss in simulation, hand-analysed it (moments, method of joints), then built and load-tested it.',
