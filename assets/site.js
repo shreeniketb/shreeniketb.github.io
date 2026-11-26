@@ -119,7 +119,9 @@
       '<a class="btn ghost" href="https://' + p.linkedin + '" target="_blank" rel="noopener">LinkedIn</a>' +
       resumeMenu(p) + '</div>' +
       '<div class="now"><h3>Right now</h3><ul>' + now.map(function (x) {
-        return '<li><a href="' + link(x) + '">' + esc(x.role.split(' (')[0]) + '</a><span>' + esc(x.org.split(',')[0]) + '</span></li>';
+        return '<li><a href="' + link(x) + '">' + (x.logo ? '<img src="' + u(x.logo) + '" alt="">' : '<span class="ph"></span>') +
+          '<span class="nr"><b>' + esc(x.role.split(' (')[0]) + '</b><span>' + esc(x.org.split(',')[0]) + '</span></span>' +
+          '<span class="nd">Since ' + esc(x.date.replace(/\s*–\s*Present/, '')) + '</span></a></li>';
       }).join('') + '</ul></div></div>' +
       '<dl class="facts">' + p.facts.map(function (f) { return '<div><dt>' + esc(f[0]) + '</dt><dd>' + esc(f[1]) + '</dd></div>'; }).join('') + '</dl></div>' +
       (logos ? '<div class="logos">' + logos + '</div>' : '') +

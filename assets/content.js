@@ -58,8 +58,7 @@ window.PORTFOLIO = {
   /* ---------------- EXPERIENCE ---------------- */
   experience: [
     {
-      id: 'ampf',
-      logo: 'assets/img/logos/ampf.png',
+      id: 'ampf', logo: 'assets/img/logos/ampf.png',
       group: 'Research & Internships',
       title: 'Robotic Inspection, Handling & Safeguarding for Metal AM',
       role: 'Research Assistant (Paid)',
@@ -118,8 +117,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'harvard',
-      logo: 'Images/logos/harvard.jpg',
+      id: 'harvard', logo: 'assets/img/logos/harvard.png',
       group: 'Research & Internships',
       title: 'Energy Data Pipelines & Leadership Dashboards',
       role: 'Technical Product Intern',
@@ -146,8 +144,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'tradelink',
-      logo: 'Images/logos/tradelink.jpg',
+      id: 'tradelink', logo: 'assets/img/logos/tradelink.png',
       group: 'Research & Internships',
       title: 'Purchase-Order Automation: KPI Experiment & UX',
       role: 'Supply Chain Automation Intern',
@@ -175,8 +172,7 @@ window.PORTFOLIO = {
   /* ---------------- PROJECTS & LEADERSHIP ---------------- */
   projects: [
     {
-      id: 'iise',
-      logo: 'assets/img/logos/901partners.png',
+      id: 'iise', logo: 'assets/img/logos/901partners.png',
       group: 'Competitions',
       title: 'Launch Demand Forecast & Purchase Plan for 170 Stores',
       role: 'Team Lead',
@@ -251,8 +247,7 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'wear',
-      logo: 'assets/img/logos/weargt.png',
+      id: 'wear', logo: 'assets/img/logos/weargt.png',
       group: 'Student Teams & Leadership',
       title: 'Leading Mechanical for a Wearable-Robotics Club: Prosthetics to Exoskeleton',
       role: 'Mechanical Subteam Lead & Founding Member',
@@ -281,8 +276,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'vip',
-      logo: 'Images/logos/gatech.png',
+      id: 'vip', logo: 'assets/img/logos/vip.png',
       group: 'Student Teams & Leadership',
       title: 'Six-Axis AR4 Arm for Sheet-Metal Automation',
       role: 'Co-Lead',
@@ -309,8 +303,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'solar',
-      logo: 'assets/img/logos/energygt.png',
+      id: 'solar', logo: 'assets/img/logos/energygt.png',
       group: 'Student Teams & Leadership',
       title: 'Collapsible Solar Array: From Demo to Product',
       role: 'Solar Array Co-Lead (Electrical) and Data Lead',
@@ -337,8 +330,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'energyhack',
-      logo: 'assets/img/logos/energygt.png',
+      id: 'energyhack', logo: 'assets/img/logos/energygt.png',
       group: 'Student Teams & Leadership',
       title: 'EnergyHack@GT 2027: Judges and Sponsors',
       role: 'Judging & Sponsor Co-Head',
@@ -357,7 +349,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'tesla', ini: 'SCLO',
+      id: 'tesla', logo: 'assets/img/logos/sclo.png',
       group: 'Competitions',
       title: 'Tesla Sourcing Strategy under Uncertainty',
       role: 'Team Lead',
@@ -380,7 +372,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'hackgt', ini: 'HackGT',
+      id: 'hackgt', logo: 'assets/img/logos/hackgt.png',
       group: 'Competitions',
       title: 'ScamShield-AI: Real-Time Scam-Call Protection',
       role: 'Product Lead',
@@ -424,7 +416,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'bcg', ini: 'BCG',
+      id: 'bcg', logo: 'assets/img/logos/bcg.png',
       group: 'Competitions',
       title: 'Thinking Like a Strategy Consultant: Revenue Growth Ideas',
       role: 'Participant',
@@ -443,7 +435,7 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'sclo', ini: 'SCLO',
+      id: 'sclo', logo: 'assets/img/logos/sclo.png',
       group: 'Student Teams & Leadership',
       title: 'Bringing Supply-Chain Employers to Georgia Tech Students',
       role: 'Corporate Outreach Officer',
@@ -472,7 +464,7 @@ window.PORTFOLIO = {
   /* ---------------- EARLIER WORK (high school) ---------------- */
   earlier: [
     {
-      id: 'vision', logo: 'Images/logos/nyas.PNG', group: 'Earlier Work', title: 'VisionXcelerate: AR Smart Glasses for Dementia', org: 'NYAS Junior Academy', date: '2024',
+      id: 'vision', logo: 'assets/img/logos/nyas.png', group: 'Earlier Work', title: 'VisionXcelerate: AR Smart Glasses for Dementia', org: 'NYAS Junior Academy', date: '2024',
       cat: 'Wearables, Product Design', badge: 'Winner, 1st of 170 teams',
       context: 'Dementia patients lose independence as memory declines, and most assistive tech reacts after something goes wrong.',
       roleText: 'Led CAD design, research, and the embedded IoT hardware and software stack; designed the AR interface concept for real-time memory cues.',
@@ -537,7 +529,7 @@ window.PORTFOLIO = {
       pdf: 'pdfs/dtneaslides.pdf'
     },
     {
-      id: 'mekong', group: 'Earlier Work', title: 'Mekong River Conflict: A Game-Theory Analysis', org: 'Research paper', date: '2023 – 2024',
+      id: 'mekong', logo: 'assets/img/logos/northwood.png', group: 'Earlier Work', title: 'Mekong River Conflict: A Game-Theory Analysis', org: 'Research paper', date: '2023 – 2024',
       cat: 'Research, Mathematics',
       context: 'Six nations share the Mekong; upstream dams give China leverage. Is cooperation or unilateral action the rational strategy?',
       roleText: 'Wrote a research paper modeling the conflict with a two-player payoff matrix and four game variations, including incomplete information.',
@@ -572,13 +564,25 @@ window.PORTFOLIO = {
       school: 'Georgia Institute of Technology', place: 'Atlanta, GA', date: 'Expected May 2029',
       degree: 'B.S. Industrial & Systems Engineering (#1 IE program, U.S. News); concentration in Supply Chain Engineering, minor in Robotics',
       notes: 'Sophomore standing. Member of IISE and SCLO; VIP: Intelligent Robotics for Assembly & Design',
-      logo: 'Images/logos/gatech.png'
+      logo: 'assets/img/logos/gatech.png'
     },
     {
       school: 'Stamford American School', place: 'Hong Kong', date: '2024 – 2026',
       degree: 'IB Diploma, Valedictorian',
       notes: 'IB 45/45 (perfect score, top 0.2% globally)',
-      logo: 'Images/logos/stamford.png'
+      logo: 'assets/img/logos/stamford.png'
+    },
+    {
+      school: 'Northwood School', place: 'Lake Placid, NY', date: '2023 – 2024',
+      degree: 'AP Program, ranked 1st, 4.0 unweighted GPA',
+      notes: 'Student-athlete soccer scholarship, Cum Laude Society, Dean\u2019s List; FRC Robotics Team 6300',
+      logo: 'assets/img/logos/northwood.png'
+    },
+    {
+      school: 'King George V School', place: 'Hong Kong', date: '2018 – 2023',
+      degree: 'IGCSE: top 4 of 250, all A*/9s in 10 subjects',
+      notes: 'Highest in Asia, IGCSE Design Technology; Speech Day awards in DT, Spanish, English and History',
+      logo: 'assets/img/logos/kgv.png'
     }
   ],
 
