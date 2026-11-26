@@ -23,6 +23,7 @@ window.PORTFOLIO = {
     github: 'github.com/shreeniketb',
     site: 'shreeniketb.github.io',
     photo: 'assets/img/profile.jpg',
+    banner: 'assets/img/banner-techtower.jpg',
     intro: 'I’m an Industrial & Systems Engineering student at Georgia Tech who likes making machines, processes and people work better together. I do paid research at Georgia Tech’s Advanced Manufacturing Pilot Facility, co-lead robotics and energy teams, and use data to make supply-chain decisions.',
     about: [
       'I was born in India, grew up in Hong Kong, and now study <strong>Industrial & Systems Engineering at Georgia Tech</strong> (#1 IE program, U.S. News). Most of my work sits where hardware meets operations: robotic cells, inspection, fixtures and safety on one side; forecasting, sourcing and process improvement on the other.',
@@ -163,6 +164,7 @@ window.PORTFOLIO = {
       date: 'Nov 2026', badge: '1st of 35 teams',
       cat: 'Supply Chain Analytics · Forecasting',
       context: 'Jeremiah’s Italian Ice was launching a limited-time product across 170 stores. The team had to forecast demand, decide how much to buy, and plan allocation, including for stores with no launch history.',
+      why: 'A limited-time launch gives one shot at the order: buy too little and stores stock out on launch day, buy too much and the leftovers are wasted, so a better forecast and order size is worth real money.',
       roleText: 'Led the team and pitched the plan to 901 Partners’ founder. Built the forecast, the newsvendor purchase model, Monte Carlo checks and a Python replenishment simulator.',
       result: '1st of 35 teams (131 participants). Forecast error cut from 37.5% to 19.1%, and ~$45K (27%) expected savings identified per launch.',
       metrics: [
