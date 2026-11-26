@@ -161,12 +161,13 @@ window.PORTFOLIO = {
       title: 'Launch Demand Forecast & Purchase Plan for 170 Stores',
       role: 'Team Lead',
       org: 'IISE x UCC Case Competition (901 Partners), Georgia Tech',
-      date: 'Nov 2026', badge: '1st of 35 teams',
+      date: 'Nov 2026', badge: '1st of 35 teams \u00b7 $500 prize',
+      team: 'Team Scoop Strategy',
       cat: 'Supply Chain Analytics · Forecasting',
-      context: 'Jeremiah’s Italian Ice was launching a limited-time product across 170 stores. The team had to forecast demand, decide how much to buy, and plan allocation, including for stores with no launch history.',
+      context: 'Jeremiah\u2019s Italian Ice launched a Cheesecake limited-time offer (LTO) across 170 stores for 13 weeks. The base ingredient is bought once, before launch, with no reorders, then either shipped to stores or held at 7 regional warehouses (Opcos); 19 stores had never run an LTO.',
       why: 'A limited-time launch gives one shot at the order: buy too little and stores stock out on launch day, buy too much and the leftovers are wasted, so a better forecast and order size is worth real money.',
       roleText: 'Led the team and pitched the plan to 901 Partners’ founder. Built the forecast, the newsvendor purchase model, Monte Carlo checks and a Python replenishment simulator.',
-      result: '1st of 35 teams (131 participants). Forecast error cut from 37.5% to 19.1%, and ~$45K (27%) expected savings identified per launch.',
+      result: '1st of 35 teams (131 participants), winning a $500 prize (and free Italian ice from Jeremiah\u2019s). Forecast error cut from 37.5% to 19.1%, and ~$45K (27%) expected savings identified per launch.',
       metrics: [
         { n: '1st/35', l: 'teams · 131 participants' },
         { n: '37.5→19.1%', l: 'store-level forecast error' },
@@ -181,7 +182,16 @@ window.PORTFOLIO = {
         'Stress-tested the plan across 9 demand scenarios (buy within $0.7K of optimal) & forecast 19 new stores lacking history via store-size indices.'
       ],
       tools: ['Python', 'Newsvendor model', 'Monte Carlo simulation', 'Backtesting', 'Excel'],
-      media: []
+      media: [
+        { src: 'assets/img/iise/photo-3.jpg', cap: 'Team Scoop Strategy at the UCC x IISE final' },
+        { src: 'assets/img/iise/slide-03.jpg', cap: 'Executive summary: buy 6,192 cases, auto-ship all at launch' },
+        { src: 'assets/img/iise/slide-08.jpg', cap: 'Store-level forecast blend: error cut from 37.5% to 19.1%' },
+        { src: 'assets/img/iise/slide-10.jpg', cap: 'Expected total cost vs. cases bought: minimum at 6,192' },
+        { src: 'assets/img/iise/slide-15.jpg', cap: 'Recommendation' },
+        { src: 'assets/img/iise/photo-1.jpg', cap: 'The team at Jeremiah\u2019s' },
+        { src: 'assets/img/iise/photo-2.jpg', cap: 'Celebrating the win' }
+      ],
+      docs: [{ src: 'assets/docs/IISE_UCC_Scoop_Strategy_Deck.pdf', label: 'Full winning deck (PDF, 17 slides)' }]
     },
     {
       id: 'aakruti',
