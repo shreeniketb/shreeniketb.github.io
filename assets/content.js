@@ -14,8 +14,8 @@ window.PORTFOLIO = {
   person: {
     name: 'Shreeniket Bhat',
     first: 'SHREENIKET', last: 'BHAT',
-    headline: 'Industrial & Systems Engineering · Georgia Tech',
-    tagline: 'Smart manufacturing · Robotics & automation · Supply chain analytics',
+    headline: 'Industrial & Systems Engineering student at Georgia Tech',
+    tagline: 'Smart manufacturing, Robotics & automation, Supply chain analytics',
     location: 'Atlanta, GA',
     email: 'shreeniketb@gmail.com',
     phone: '+1 470 891 7896',
@@ -24,6 +24,15 @@ window.PORTFOLIO = {
     site: 'shreeniketb.github.io',
     photo: 'assets/img/profile.jpg',
     banner: 'assets/img/banner-techtower.jpg',
+    resume: '',                          // e.g. 'assets/docs/Shreeniket_Bhat_Resume.pdf' (shows a Resume button when set)
+    logos: [
+      { name: 'Georgia Tech', src: 'Images/logos/gatech.png' },
+      { name: 'Harvard Undergraduate Ventures', src: 'Images/logos/harvard.jpg' },
+      { name: 'TradeLink Technologies', src: 'Images/logos/tradelink.jpg' },
+      { name: 'Stamford American School', src: 'Images/logos/stamford.png' }
+    ],
+    strengths: [],                       // add 3 one-liners in your own words to show the section
+    weaknesses: [],
     intro: 'I’m an Industrial & Systems Engineering student at Georgia Tech who likes making machines, processes and people work better together. I do paid research at Georgia Tech’s Advanced Manufacturing Pilot Facility, co-lead robotics and energy teams, and use data to make supply-chain decisions.',
     about: [
       'I was born in India, grew up in Hong Kong, and now study <strong>Industrial & Systems Engineering at Georgia Tech</strong> (#1 IE program, U.S. News). Most of my work sits where hardware meets operations: robotic cells, inspection, fixtures and safety on one side; forecasting, sourcing and process improvement on the other.',
@@ -32,9 +41,9 @@ window.PORTFOLIO = {
     ],
     facts: [
       ['Based in', 'Atlanta, GA'],
-      ['Studying', 'B.S. ISyE · Expected May 2029'],
-      ['Interests', 'Smart manufacturing · Industrial automation · Robotics · Supply chain analytics · Wearable robotics'],
-      ['Languages', 'English · Spanish · Hindi · Mandarin · Konkani']
+      ['Studying', 'B.S. ISyE, Expected May 2029'],
+      ['Interests', 'Smart manufacturing, Industrial automation, Robotics, Supply chain analytics, Wearable robotics'],
+      ['Languages', 'English, Spanish, Hindi, Mandarin, Konkani']
     ],
     stats: [
       { n: '1st', l: 'of 35 teams<br>IISE x UCC case' },
@@ -48,11 +57,12 @@ window.PORTFOLIO = {
   experience: [
     {
       id: 'ampf',
+      group: 'Research & Internships',
       title: 'Robotic Inspection, Handling & Safeguarding for Metal AM',
       role: 'Research Assistant (Paid)',
       org: 'Advanced Manufacturing Pilot Facility (AMPF), Georgia Tech',
       date: 'Aug 2026 – Present', location: 'Atlanta, GA',
-      cat: 'Industry 4.0 · Robotics · Metrology',
+      cat: 'Industry 4.0, Robotics, Metrology',
       context: 'AMPF is an Industry 4.0 pilot facility automating AMR-driven production and testing of metal additive-manufactured (AM) samples. Each sample needs to be inspected, handled and moved safely between robot cells before X-ray CT.',
       why: 'Scanning each sample against its CAD right on the robot catches geometry problems before the sample goes to slower, more expensive X-ray CT, and proper safeguarding lets robots and people share the cell safely.',
       roleText: 'I own three workstreams in Dr. Stebner’s BeamTeam: robotic 3D inspection, vacuum handling, and machine safeguarding, working up to 20 hours a week alongside a full course load.',
@@ -77,11 +87,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'siemens',
+      group: 'Research & Internships',
       title: 'Full Digital-Manufacturing Chain: CAD to Live Robots',
       role: 'Smart Manufacturing Engineering Intern',
       org: 'Siemens Centre of Excellence, VNIT Nagpur',
       date: 'Jul – Aug 2026', location: 'Nagpur, India',
-      cat: 'Smart Manufacturing · Industry 4.0',
+      cat: 'Smart Manufacturing, Industry 4.0',
       context: 'A two-month intensive covering design, simulation, CNC, robotics and inspection, certified by VNIT Nagpur, Siemens and 3D Engineering Automation LLP.',
       roleText: 'Delivered CAD/CAM/CAE/PLM workflows for healthtech and automotive use cases, then took simulated robot programs onto physical ABB and KUKA hardware.',
       result: 'Earned the Siemens Smart Manufacturing certification after working every stage of the chain hands-on.',
@@ -105,11 +116,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'harvard',
+      group: 'Research & Internships',
       title: 'Energy Data Pipelines & Leadership Dashboards',
       role: 'Technical Product Intern',
-      org: 'Harvard Undergraduate Ventures–TECH · Rayfield Systems',
+      org: 'Harvard Undergraduate Ventures–TECH, Rayfield Systems',
       date: 'Jul – Aug 2025', location: 'Remote',
-      cat: 'Data · Product · Energy',
+      cat: 'Data, Product, Energy',
       context: 'Rayfield Systems, an AI/ML startup, works with energy datasets that arrive in many formats, and its AI-generated reports needed to reach leadership in a usable form. The program accepts under 15% of applicants.',
       why: 'Forecasts are only as good as the data going into them; clean, validated inputs and clear visuals are what turn a model\u2019s output into a decision leadership can act on.',
       roleText: 'Built Python data-cleaning and validation pipelines, mapped workflows, and designed Figma dashboards.',
@@ -117,7 +129,7 @@ window.PORTFOLIO = {
       metrics: [
         { n: '3', l: 'workflow bottlenecks identified' },
         { n: 'All', l: 'multi-format ingestion errors eliminated' },
-        { n: 'US$2k', l: 'scholarship \u00b7 <15% acceptance' }
+        { n: 'US$2k', l: 'scholarship, <15% acceptance' }
       ],
       bullets: [
         'Eliminated multi-format ingestion errors in energy datasets with Python data-cleaning & validation pipelines.',
@@ -131,11 +143,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'tradelink',
+      group: 'Research & Internships',
       title: 'Purchase-Order Automation: KPI Experiment & UX',
       role: 'Supply Chain Automation Intern',
       org: 'TradeLink Technologies',
       date: 'May – Jun 2025', location: 'Hong Kong',
-      cat: 'Supply Chain Automation · Industry 4.0',
+      cat: 'Supply Chain Automation, Industry 4.0',
       context: 'TradeLink is a Hong Kong supply-chain automation and Industry 4.0 firm working with ERP/WMS, RFID-based purchase-order tracking and GS1 standards.',
       why: 'Purchase-order processing is repetitive and error-prone; putting hard numbers on how much effort AI saves is what convinces funders and customers to adopt automation, and software only saves time if people find it easy to use.',
       roleText: 'Ran an investor-facing KPI experiment benchmarking AI vs. human effort on purchase-order data, ran usability tests and UI/UX mockups for the PO automation software, and designed mockups for AI-guided warehouse packing workflows.',
@@ -158,18 +171,19 @@ window.PORTFOLIO = {
   projects: [
     {
       id: 'iise',
+      group: 'Competitions',
       title: 'Launch Demand Forecast & Purchase Plan for 170 Stores',
       role: 'Team Lead',
       org: 'IISE x UCC Case Competition (901 Partners), Georgia Tech',
-      date: 'Nov 2026', badge: '1st of 35 teams \u00b7 $500 prize',
+      date: 'Nov 2026', badge: '1st of 35 teams, $500 prize',
       team: 'Team Scoop Strategy',
-      cat: 'Supply Chain Analytics · Forecasting',
+      cat: 'Supply Chain Analytics, Forecasting',
       context: 'Jeremiah\u2019s Italian Ice launched a Cheesecake limited-time offer (LTO) across 170 stores for 13 weeks. The base ingredient is bought once, before launch, with no reorders, then either shipped to stores or held at 7 regional warehouses (Opcos); 19 stores had never run an LTO.',
       why: 'A limited-time launch gives one shot at the order: buy too little and stores stock out on launch day, buy too much and the leftovers are wasted, so a better forecast and order size is worth real money.',
       roleText: 'Led the team and pitched the plan to 901 Partners’ founder. Built the forecast, the newsvendor purchase model, Monte Carlo checks and a Python replenishment simulator.',
       result: '1st of 35 teams (131 participants), winning a $500 prize (and free Italian ice from Jeremiah\u2019s). Forecast error cut from 37.5% to 19.1%, and ~$45K (27%) expected savings identified per launch.',
       metrics: [
-        { n: '1st/35', l: 'teams · 131 participants' },
+        { n: '1st/35', l: 'teams, 131 participants' },
         { n: '37.5→19.1%', l: 'store-level forecast error' },
         { n: '~$45K', l: 'expected savings per launch (27%)' },
         { n: '1,000', l: 'Monte Carlo scenarios' }
@@ -191,12 +205,13 @@ window.PORTFOLIO = {
     },
     {
       id: 'aakruti',
+      group: 'Competitions',
       title: 'AirShield: Solar-Powered Air-Filtration Wall',
       role: 'Team & CAD Lead',
       org: 'Dassault Systèmes SolidWorks AAKRUTI Competition',
-      date: 'May 2026 – Present', badge: 'Regional finalist (Top 8) \u00b7 Patent application in preparation',
+      date: 'May 2026 – Present', badge: 'Regional finalist (Top 8), Patent application in preparation',
       team: 'Team Sparkline',
-      cat: 'Product Design · CAD · Simulation',
+      cat: 'Product Design, CAD, Simulation',
       context: 'A global team product challenge run by Dassault Syst\u00e8mes: design, validate and make the business case for a new product in SolidWorks. Our concept, AirShield, replaces an ordinary boundary wall with a solar-powered wall that pulls street air through modular filter cartridges to remove PM2.5.',
       why: 'Fine-particle pollution is a serious health problem in Indian cities, and most air filtration happens indoors. A wall that cleans air at street level without grid power has to filter well at low airflow and stand up to high wind loads, which is why the design was checked against India\u2019s IS:875 Zone V wind-load standard.',
       roleText: 'Lead a 4-member global team (with a faculty mentor) through the full product cycle: concept scoring, SolidWorks CAD, material selection, simulation, documentation and a business-to-government (B2G) business case.',
@@ -204,7 +219,7 @@ window.PORTFOLIO = {
       metrics: [
         { n: '99.89%', l: 'est. PM2.5 removal at 0.20 m/s' },
         { n: '~3.1×', l: 'factor of safety, IS:875 Zone V' },
-        { n: '3', l: 'independent claims \u00b7 patent application in preparation' },
+        { n: '3', l: 'independent claims, patent application in preparation' },
         { n: 'Top 8', l: 'regional finalist, pitched to industry judges' }
       ],
       bullets: [
@@ -231,11 +246,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'wear',
+      group: 'Student Teams & Leadership',
       title: 'Leading Mechanical for a Wearable-Robotics Club: Prosthetics to Exoskeleton',
       role: 'Mechanical Subteam Lead & Founding Member',
-      org: 'WEAR@GT \u00b7 Georgia Tech Wearable Robotics',
+      org: 'WEAR@GT, Georgia Tech Wearable Robotics',
       date: 'Sep 2026 – Present',
-      cat: 'Wearable Robotics \u00b7 Team Leadership',
+      cat: 'Wearable Robotics, Team Leadership',
       context: 'WEAR@GT is a new Georgia Tech wearable-robotics club. New members onboard by building open-source prosthetic hands and arms in mentor-led groups; in spring 2027 the club builds a lower-body exoskeleton for a competition modeled on the University of Michigan\u2019s ACE challenge.',
       why: 'A new club\u2019s first build sets its habits. Shared purchasing, safety rules and a \u201cmodify it, don\u2019t just copy it\u201d standard turn 45 new members into engineers ready to take on a real exoskeleton competition.',
       roleText: 'As a founding member, I lead the 45-member mechanical subteam. This fall I ran the onboarding prosthetics build; now I manage four mechanical subteams through the research and build phases of the spring 2027 ACE exoskeleton competition, after interviewing and selecting their leads.',
@@ -259,11 +275,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'vip',
+      group: 'Student Teams & Leadership',
       title: 'Six-Axis AR4 Arm for Sheet-Metal Automation',
       role: 'Co-Lead',
       org: 'Intelligent Robotics for Assembly & Design VIP, Georgia Tech',
       date: 'Aug 2026 – Present',
-      cat: 'Robotics · Simulation · Team Operations',
+      cat: 'Robotics, Simulation, Team Operations',
       context: 'A Vertically Integrated Projects research team building a six-axis AR4 robotic arm (motors, controller, simulation) to automate sheet-metal processes, with NVIDIA Isaac Sim computer vision planned next.',
       roleText: 'Co-lead a 6-person team, continuing as co-lead in spring 2027. Mapping failure modes ahead of vision integration, learning Rhino and Grasshopper for a parametric arm simulation, and setting up team documentation and inventory.',
       result: 'All six joints of the AR4 arm are assembled. Kit reconciled against the BOM (7 missing part categories flagged), hardware labeled, and SOPs giving the team traceable progress.',
@@ -284,39 +301,59 @@ window.PORTFOLIO = {
       media: []
     },
     {
-      id: 'energy',
-      title: 'Collapsible Solar Array & EnergyHack@GT',
-      role: 'Solar Array Co-Lead · EnergyHack Judging & Sponsor Co-Head',
+      id: 'solar',
+      group: 'Student Teams & Leadership',
+      title: 'Collapsible Solar Array: From Demo to Product',
+      role: 'Solar Array Co-Lead (Electrical) and Data Lead',
       org: 'Energy@GT, Georgia Tech',
       date: 'Sep 2026 – Present',
-      cat: 'Energy · Electrical · Data',
-      context: 'The club is building a collapsible solar array for a Nov. 30 demo, and running the EnergyHack@GT 2027 hackathon (Jan. 22–24) alongside an Energy Conference showcase.',
-      roleText: 'Co-lead the 6-person electrical team and act as sole data lead; led the commercialization plan; co-head judging and sponsor outreach for EnergyHack.',
-      result: 'Project scope redefined beyond the demo (user dashboard, ergonomics, modular architecture); standardized BOM and Power BI KPI dashboard in progress for the Nov. 30 demo.',
+      cat: 'Energy, Electrical, Data',
+      context: 'Energy@GT is building a collapsible solar array, with a demo planned for early February 2027.',
+      why: 'A demo proves an array works; a product people will actually use needs a clear dashboard, an easy setup and parts that scale. The data side turns raw panel readings into output and efficiency numbers that show whether the design is worth deploying.',
+      roleText: 'I co-lead the 6-person electrical team and am the sole data lead. I led the commercialization plan, and I drive microcontroller interface, sourcing and budget decisions.',
+      result: 'Project scope redefined beyond the demo to include a user-facing dashboard, ergonomic design and a modular architecture. A standardized BOM and a Power BI KPI dashboard are being set up ahead of the February demo.',
       metrics: [
         { n: '6', l: 'person electrical team co-led' },
-        { n: 'Sole', l: 'data lead (Power BI KPIs)' },
-        { n: 'Nov 30', l: 'demo deadline' },
-        { n: 'Jan 22–24', l: 'EnergyHack@GT 2027' }
+        { n: '2', l: 'team meetings a week' },
+        { n: 'Sole', l: 'data lead' }
       ],
       bullets: [
         'Led the commercialization plan for the collapsible solar array, redefining project scope beyond the demo to include a user-facing dashboard, ergonomic design, & scalable modular architecture.',
         'Co-lead a 6-person electrical team on the collapsible solar array: assigning deliverables, managing deadlines in 2 weekly meetings, & mentoring members on microcontroller fundamentals (IEEE SSCS).',
-        'Drive microcontroller interface, sourcing, & budget decisions under cost & schedule constraints (Nov. 30 demo).',
-        'Developing a custom BOM spreadsheet standardizing procurement format & assigning component ownership, so the team orders consistently ahead of the Nov. 30 demo.',
-        'Co-head judging & sponsor outreach for the EnergyHack@GT 2027 hackathon (Jan. 22–24) & industry liaison for the Energy Conference showcase, working with sponsors & judges.',
-        'Sole data lead: processing array sensor signals into output & efficiency KPIs on a Power BI dashboard for the team & users.'
+        'Drive microcontroller interface, sourcing, & budget decisions under cost & schedule constraints ahead of the demo.',
+        'Developing a custom BOM spreadsheet standardizing procurement format & assigning component ownership, so the team orders consistently ahead of the demo.',
+        'Sole data lead: setting up processing of array sensor signals into output & efficiency KPIs on a Power BI dashboard for the team & users.'
       ],
-      tools: ['Power BI', 'Microcontrollers', 'BOM & procurement', 'Sponsor outreach'],
+      tools: ['Power BI', 'Microcontrollers', 'BOM & procurement', 'Team leadership'],
+      media: []
+    },
+    {
+      id: 'energyhack',
+      group: 'Student Teams & Leadership',
+      title: 'EnergyHack@GT 2027: Judges and Sponsors',
+      role: 'Judging & Sponsor Co-Head',
+      org: 'EnergyHack@GT 2027, Energy@GT',
+      date: 'Nov 2026 – Present',
+      cat: 'Event Leadership, Industry Relations',
+      context: 'EnergyHack@GT is Energy@GT\u2019s energy-focused hackathon, running January 22\u201324, 2027.',
+      why: 'A hackathon is only as good as the people who judge it and the companies that back it: credible judges give teams real feedback, and sponsors fund the prizes and bring the problems.',
+      roleText: 'I co-head judging and sponsor outreach with one other organizer, sharing both rather than splitting them: recruiting industry judges and sponsors and working with them through the event.',
+      result: 'Outreach under way for the January 2027 event.',
+      metrics: [],
+      bullets: [
+        'Co-head judging & sponsor outreach for the EnergyHack@GT 2027 hackathon (Jan. 22\u201324), working with sponsors & judges.'
+      ],
+      tools: ['Sponsor outreach', 'Judging logistics'],
       media: []
     },
     {
       id: 'tesla',
+      group: 'Competitions',
       title: 'Tesla Sourcing Strategy under Uncertainty',
       role: 'Team Lead',
       org: 'Tesla Supply Chain Case Competition (SCLO), Georgia Tech',
       date: 'Oct 2026',
-      cat: 'Sourcing · Risk Modeling',
+      cat: 'Sourcing, Risk Modeling',
       context: 'An end-to-end sourcing-strategy case for Tesla, weighing supplier risk, cost and lead-time trade-offs.',
       roleText: 'Led a 3-person team (Team 14) and built the Monte Carlo model behind the recommendation.',
       result: 'Ranked sourcing options by risk-adjusted cost and delivered a 3-minute executive video pitch on deadline.',
@@ -334,11 +371,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'hackgt',
+      group: 'Competitions',
       title: 'ScamShield-AI: Real-Time Scam-Call Protection',
       role: 'Product Lead',
       org: 'HackGT 13, Georgia Tech',
       date: 'Sep 2026',
-      cat: 'Product · Full-Stack · AI',
+      cat: 'Product, Full-Stack, AI',
       context: 'A 36-hour hackathon build: real-time protection against scam phone calls.',
       roleText: 'Product lead of a 4-person team. Wrote the spec, API contract and build plan, and directed AI coding agents (Cursor, Claude Code) to deliver the app.',
       result: 'Shipped a full-stack Next.js app with 27 REST endpoints in 36 hours; pitched live across 4 prize tracks and got technical feedback from NSA, Meta and SpaceX AI engineers.',
@@ -356,11 +394,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'forage',
+      group: 'Competitions',
       title: 'Wheel-Assembly Bottleneck & Layout Fix',
       role: 'Participant',
       org: 'Siemens Mobility: Operations & Industrial Engineering Job Simulation (Forage)',
       date: 'May 2026',
-      cat: 'Operations · Process Analysis',
+      cat: 'Operations, Process Analysis',
       context: 'A Siemens Mobility operations-optimization job simulation focused on a wheel-assembly process.',
       roleText: 'Used process analysis to find the bottleneck and propose a layout change.',
       result: 'Pinpointed the wheel-assembly bottleneck and presented a layout fix in PowerPoint.',
@@ -376,11 +415,12 @@ window.PORTFOLIO = {
     },
     {
       id: 'sclo',
+      group: 'Student Teams & Leadership',
       title: 'Corporate Outreach for Georgia Tech\u2019s Supply Chain Club',
       role: 'Corporate Outreach Officer',
       org: 'Supply Chain & Logistics Organization (SCLO), Georgia Tech',
       date: 'Spring 2027',
-      cat: 'Industry Relations \u00b7 Leadership',
+      cat: 'Industry Relations, Leadership',
       context: 'SCLO connects Georgia Tech students with supply-chain employers through speaker sessions, Supply Chain Day, case competitions and pro bono projects.',
       why: 'Every speaker session, case competition and project starts with a company saying yes to a first call.',
       roleText: 'One of three outreach officers bringing companies to SCLO: first a call, then a speaker or info session, then case competitions, pro bono projects and possibly sponsorship.',
@@ -396,8 +436,8 @@ window.PORTFOLIO = {
   /* ---------------- EARLIER WORK (high school) ---------------- */
   earlier: [
     {
-      id: 'vision', title: 'VisionXcelerate: AR Smart Glasses for Dementia', org: 'NYAS Junior Academy', date: '2024',
-      cat: 'Wearables · Product Design', badge: 'Winner · 1st of 170 teams',
+      id: 'vision', group: 'Earlier Work', title: 'VisionXcelerate: AR Smart Glasses for Dementia', org: 'NYAS Junior Academy', date: '2024',
+      cat: 'Wearables, Product Design', badge: 'Winner, 1st of 170 teams',
       context: 'Dementia patients lose independence as memory declines, and most assistive tech reacts after something goes wrong.',
       roleText: 'Led CAD design, research, and the embedded IoT hardware and software stack; designed the AR interface concept for real-time memory cues.',
       result: 'Winner, NYAS Wearable Technologies Challenge, 1st of 170 global teams.',
@@ -405,8 +445,8 @@ window.PORTFOLIO = {
       media: [{ src: 'assets/img/visionx-glasses.jpg', cap: 'Smart-glasses CAD concept' }]
     },
     {
-      id: 'gripper', title: 'Pneumatic Soft Robotic Gripper for Fruit Harvesting', org: 'Northwood School, Lake Placid', date: '2024',
-      cat: 'Soft Robotics · Biomimicry', badge: 'Lake Placid STEM Exhibition',
+      id: 'gripper', group: 'Earlier Work', title: 'Pneumatic Soft Robotic Gripper for Fruit Harvesting', org: 'Northwood School, Lake Placid', date: '2024',
+      cat: 'Soft Robotics, Biomimicry', badge: 'Lake Placid STEM Exhibition',
       context: 'Rigid grippers bruise soft produce; small farms need compliant, low-cost alternatives, a problem I saw in rural Indian agriculture.',
       roleText: 'Self-led, end-to-end: CAD, 3D-printed molds, silicone casting, Arduino-controlled pneumatics, and testing.',
       result: 'Exhibited at the Lake Placid STEM Exhibition; earned Advanced STEM college credit.',
@@ -420,16 +460,20 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'frc', title: 'FRC Robot: Mechanical Lead & Autonomous Gyro-Drive', org: 'Northwood School FRC Team', date: '2024',
-      cat: 'Robotics · Controls', badge: '3rd · South Florida Regional',
+      id: 'frc', group: 'Earlier Work', title: 'FRC Robot: Mechanical Lead & Autonomous Gyro-Drive', org: 'Northwood School FRC Team', date: '2024',
+      cat: 'Robotics, Controls', badge: '3rd, South Florida Regional',
       context: 'FRC robots drift in the 15-second autonomous period; the team had no experienced programmer.',
       roleText: 'Mechanical Lead on the team; also taught myself Java and wrote the gyro-drive autonomous routine that self-corrects heading.',
       result: '3rd at South Florida Regional and 4th at NY Tech Valley Regional (2024).',
       tools: ['Java', 'WPILib', 'Gyro control', 'Mechanical build'],
-      media: [], video: 'Images/frc1.MOV'
+      media: [
+        { type: 'video', src: 'assets/video/frc-1.mp4', poster: 'assets/img/frc-1-poster.jpg', cap: 'Robot in action, clip 1' },
+        { type: 'video', src: 'assets/video/frc-2.mp4', poster: 'assets/img/frc-2-poster.jpg', cap: 'Robot in action, clip 2' },
+        { type: 'video', src: 'assets/video/frc-3.mp4', poster: 'assets/img/frc-3-poster.jpg', cap: 'Robot in action, clip 3' }
+      ]
     },
     {
-      id: 'adirondack', title: 'Modernist Adirondack Home: Full CAD House Plan', org: 'Northwood School', date: 'Mar – May 2024',
+      id: 'adirondack', group: 'Earlier Work', title: 'Modernist Adirondack Home: Full CAD House Plan', org: 'Northwood School', date: 'Mar – May 2024',
       cat: 'Architectural CAD',
       context: 'Design a complete three-storey home from scratch using CAD only.',
       roleText: 'Independently produced dimensioned floor plans, a 3D model with interiors, section views and a cardboard scale model.',
@@ -444,8 +488,8 @@ window.PORTFOLIO = {
       ]
     },
     {
-      id: 'studyunit', title: 'Portable Study Unit: Electronic Product Design', org: 'King George V School (IGCSE DT)', date: '2023',
-      cat: 'Product Design · Electronics', badge: 'Highest in Asia · IGCSE DT',
+      id: 'studyunit', group: 'Earlier Work', title: 'Portable Study Unit: Electronic Product Design', org: 'King George V School (IGCSE DT)', date: '2023',
+      cat: 'Product Design, Electronics', badge: 'Highest in Asia, IGCSE DT',
       context: 'Small Hong Kong homes make it hard for students and remote workers to keep an organised, ventilated workspace.',
       roleText: 'Ran the full design process: client research, CAD, engineering drawings, electronics (LDR, thermistor, cooling fan) and manufacture.',
       result: 'Built and evaluated a working prototype; highest IGCSE Design Technology mark in Asia.',
@@ -457,8 +501,8 @@ window.PORTFOLIO = {
       pdf: 'pdfs/dtneaslides.pdf'
     },
     {
-      id: 'mekong', title: 'Mekong River Conflict: A Game-Theory Analysis', org: 'Research paper', date: '2023 – 2024',
-      cat: 'Research · Mathematics',
+      id: 'mekong', group: 'Earlier Work', title: 'Mekong River Conflict: A Game-Theory Analysis', org: 'Research paper', date: '2023 – 2024',
+      cat: 'Research, Mathematics',
       context: 'Six nations share the Mekong; upstream dams give China leverage. Is cooperation or unilateral action the rational strategy?',
       roleText: 'Wrote a research paper modeling the conflict with a two-player payoff matrix and four game variations, including incomplete information.',
       result: 'Completed paper and presentation on cooperation, payoffs and decision-making.',
@@ -466,16 +510,17 @@ window.PORTFOLIO = {
       media: [], pdf: 'pdfs/gametheory_slides.pdf'
     },
     {
-      id: 'truss', title: 'Popsicle Warren Truss Bridge', org: 'Northwood School', date: '2024',
+      id: 'truss', group: 'Earlier Work', title: 'Popsicle Warren Truss Bridge', org: 'Northwood School', date: '2024',
       cat: 'Structural Engineering',
       context: 'Maximise load capacity of a popsicle-stick bridge on a fixed materials budget.',
       roleText: 'Chose a Warren truss in simulation, hand-analysed it (moments, method of joints), then built and load-tested it.',
       result: 'Held 40 lbs before failure.',
+      metrics: [{ n: '40 lbs', l: 'held before failure' }],
       tools: ['Truss simulation', 'Hand calculations', 'SketchUp'],
       media: []
     },
     {
-      id: 'greenhouse', title: 'Modular AC Greenhouse System', org: 'HK Science Fair', date: '2024 – 2025',
+      id: 'greenhouse', group: 'Earlier Work', title: 'Modular AC Greenhouse System', org: 'HK Science Fair', date: '2024 – 2025',
       cat: 'Systems Design',
       context: 'Small-scale controlled-environment growing that reuses air-conditioner byproducts.',
       roleText: 'Led a team of four: feasibility research, CAD, 3D-printed components and material testing.',
@@ -490,12 +535,12 @@ window.PORTFOLIO = {
     {
       school: 'Georgia Institute of Technology', place: 'Atlanta, GA', date: 'Expected May 2029',
       degree: 'B.S. Industrial & Systems Engineering (#1 IE program, U.S. News)',
-      notes: 'Sophomore standing (32 credits) · Member: IISE, SCLO · VIP: Intelligent Robotics for Assembly & Design',
+      notes: 'Sophomore standing (32 credits), Member: IISE, SCLO, VIP: Intelligent Robotics for Assembly & Design',
       logo: 'Images/logos/gatech.png'
     },
     {
       school: 'Stamford American School', place: 'Hong Kong', date: '2024 – 2026',
-      degree: 'IB Diploma · Valedictorian',
+      degree: 'IB Diploma, Valedictorian',
       notes: 'IB 45/45 (perfect score, top 0.2% globally)',
       logo: 'Images/logos/stamford.png'
     }
@@ -504,7 +549,7 @@ window.PORTFOLIO = {
   /* ---------------- CERTIFICATIONS ---------------- */
   certifications: [
     { t: 'Siemens Smart Manufacturing Certification', s: 'VNIT Nagpur / Siemens / 3D Engineering Automation LLP', st: 'Earned' },
-    { t: 'Lean Six Sigma Yellow Belt', s: 'DMAIC · 7 wastes', st: 'Earned' },
+    { t: 'Lean Six Sigma Yellow Belt', s: 'DMAIC, 7 wastes', st: 'Earned' },
     { t: 'IEEE SSCS Micro-Controller Proficiency Certificate', s: 'IEEE Solid-State Circuits Society', st: 'Earned' },
     { t: 'MathWorks (edX): Drone Simulation', s: 'MATLAB & Simulink', st: 'Earned' },
     { t: 'SolidWorks CSWA & CSWP', s: 'Dassault Systèmes', st: 'In progress' }
@@ -512,21 +557,21 @@ window.PORTFOLIO = {
 
   /* ---------------- SKILLS ---------------- */
   skills: [
-    { h: 'Supply Chain & Analytics', items: ['Demand planning', 'Forecasting & backtesting', 'Inventory optimization (newsvendor)', 'Sourcing strategy', 'Monte Carlo simulation', 'ERP / WMS · RFID · GS1', 'Excel (PivotTables) · Power BI', 'Python (Pandas) · SQL (in progress)', 'KPI dashboards · Figma · D3/Recharts'] },
+    { h: 'Supply Chain & Analytics', items: ['Demand planning', 'Forecasting & backtesting', 'Inventory optimization (newsvendor)', 'Sourcing strategy', 'Monte Carlo simulation', 'ERP / WMS, RFID, GS1', 'Excel (PivotTables), Power BI', 'Python (Pandas), SQL (in progress)', 'KPI dashboards, Figma, D3/Recharts'] },
     { h: 'Process Excellence', items: ['Lean Six Sigma (DMAIC)', 'Continuous improvement', 'Bottleneck analysis', 'SOPs & standard work', 'Process simulation', 'Metrology (Zeiss COMET)'] },
-    { h: 'CAD / CAM / CAE & Fabrication', items: ['Siemens NX · Simcenter 3D (FEA)', 'Tecnomatix', 'SolidWorks (Flow Simulation)', 'Fusion 360 · Onshape', 'RobotStudio', 'CNC · EDM machining', 'ABB arc welding', 'Laser cutting · 3D printing'] },
+    { h: 'CAD / CAM / CAE & Fabrication', items: ['Siemens NX, Simcenter 3D (FEA)', 'Tecnomatix', 'SolidWorks (Flow Simulation)', 'Fusion 360, Onshape', 'RobotStudio', 'CNC, EDM machining', 'ABB arc welding', 'Laser cutting, 3D printing'] },
     { h: 'Robotics & Electronics', items: ['ABB RAPID', 'KUKA / Fanuc cobots', 'Otto AMRs', 'NVIDIA Isaac Sim', 'Rhino / Grasshopper (learning)', 'Arduino (C++)', 'Soldering & wiring', 'Pneumatics'] },
-    { h: 'Programming & AI', items: ['Python · Java · C++', 'MATLAB / Simulink', 'M & G-code', 'Next.js / React / TypeScript', 'Node.js · REST APIs · MongoDB', 'Vercel', 'Cursor · Claude Code', 'Wispr Flow'] },
+    { h: 'Programming & AI', items: ['Python, Java, C++', 'MATLAB / Simulink', 'M & G-code', 'Next.js / React / TypeScript', 'Node.js, REST APIs, MongoDB', 'Vercel', 'Cursor, Claude Code', 'Wispr Flow'] },
     { h: 'Languages', items: ['English', 'Spanish', 'Hindi', 'Mandarin', 'Konkani'] }
   ],
 
   /* ---------------- EARLIER HONORS (from previous site) ---------------- */
   honors: [
-    { l: 'NYAS · 2024', t: 'Winner, Wearable Tech Challenge', s: '1st of 170 global teams' },
-    { l: 'NYAS · 2025', t: 'Top 10, Living in Extremes', s: 'Top 10 of 170 teams' },
-    { l: 'NYAS · 2022', t: 'Runner-Up, Green Redesign', s: 'IoT & 5G smart closed-loop farm' },
-    { l: 'HKAGE · 2025', t: 'Top 50 HK Youth STEAM Talent', s: 'Hong Kong Academy for Gifted Education' },
-    { l: 'IGCSE · 2023', t: 'Highest in Asia, Design Technology', s: 'King George V School' },
-    { l: 'ATF · 2019', t: 'HK National Tennis Squad', s: 'Represented Hong Kong, U14' }
+    { l: 'NYAS, 2024', t: 'Winner, Wearable Tech Challenge', s: '1st of 170 global teams' },
+    { l: 'NYAS, 2025', t: 'Top 10, Living in Extremes', s: 'Top 10 of 170 teams' },
+    { l: 'NYAS, 2022', t: 'Runner-Up, Green Redesign', s: 'IoT & 5G smart closed-loop farm' },
+    { l: 'HKAGE, 2025', t: 'Top 50 HK Youth STEAM Talent', s: 'Hong Kong Academy for Gifted Education' },
+    { l: 'IGCSE, 2023', t: 'Highest in Asia, Design Technology', s: 'King George V School' },
+    { l: 'ATF, 2019', t: 'HK National Tennis Squad', s: 'Represented Hong Kong, U14' }
   ]
 };
