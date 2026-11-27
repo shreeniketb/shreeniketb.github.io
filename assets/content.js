@@ -467,8 +467,9 @@ window.PORTFOLIO = {
       id: 'vision', logo: 'assets/img/logos/nyas.png', group: 'Earlier Work', title: 'VisionXcelerate: AR Smart Glasses for Dementia', org: 'NYAS Junior Academy', date: '2024',
       cat: 'Wearables, Product Design', badge: 'Winner, 1st of 170 teams',
       context: 'Dementia patients lose independence as memory declines, and most assistive tech reacts after something goes wrong.',
-      roleText: 'Led CAD design, research, and the embedded IoT hardware and software stack; designed the AR interface concept for real-time memory cues.',
-      result: 'Winner, NYAS Wearable Technologies Challenge, 1st of 170 global teams.',
+      roleText: 'One of a 6-person team. I led CAD design, research, and the embedded IoT hardware and software stack, and designed the AR interface concept for real-time memory cues. We built and tested a working prototype.',
+      metrics: [{ n: '1st', l: 'of 170 global teams' }, { n: '6', l: 'person team' }, { n: '\u2713', l: 'prototype built and tested' }],
+      result: 'Winner, NYAS Wearable Technologies Challenge, 1st of 170 global teams, with a one-year edX professional subscription as the prize.',
       tools: ['CAD', 'Embedded IoT', 'AR concept', 'Research'],
       media: [{ src: 'assets/img/visionx-glasses.jpg', cap: 'Smart-glasses CAD concept' }]
     },
