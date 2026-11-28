@@ -44,7 +44,7 @@ window.PORTFOLIO = {
     facts: [
       ['Based in', 'Atlanta, GA'],
       ['Studying', 'B.S. Industrial & Systems Engineering, concentration in Supply Chain Engineering, minor in Robotics. Expected May 2029'],
-      ['Interests', 'Smart manufacturing, Industrial automation, Robotics, Supply chain analytics, Wearable robotics'],
+      ['Interests', 'Smart manufacturing, Industrial automation, Robotics, Physical AI, Wearable robotics, Supply chain analytics'],
       ['Languages', 'English, Spanish, Hindi, Mandarin, Konkani']
     ],
     stats: [
@@ -206,6 +206,31 @@ window.PORTFOLIO = {
       ]
     },
     {
+      id: 'inventure',
+      group: 'Competitions',
+      title: 'Hands-Free Physical-AI Wheelchair',
+      role: 'Co-Inventor & Hardware Lead',
+      org: 'InVenture Prize 2027, Georgia Tech',
+      date: 'November 2026 – Present', badge: 'In progress',
+      cat: 'Physical AI, Assistive Robotics, BCI',
+      context: 'People with limited limb mobility often can\u2019t use a joystick, and many hands-free systems still depend on a screen the rider has to look at and click. We are building a wheelchair the rider steers by intent: eye tracking and jaw clenching, with BCI/EEG signals added, feed an intent-recognition model running in the background, and the chair steers around obstacles on its own. We are entering it in Georgia Tech\u2019s InVenture Prize 2027.',
+      why: 'Mobility is independence. A chair that understands where its rider wants to go, and handles the obstacles itself, removes both the joystick and the screen from the loop.',
+      roleText: 'I am the vision behind the invention and lead the hardware and electrical work: sensor mounting, the motor-drive interface and power. I also contribute to the intent-recognition software, adapting the approach we are planning for WEAR@GT\u2019s exoskeleton.',
+      result: 'A screen-based prototype is the starting point. The current phase is designing the multimodal intent model (gaze, jaw clench, EEG) and autonomous obstacle avoidance, with the goal of fully screen-free control.',
+      metrics: [
+        { n: '3', l: 'input signals fused: gaze, jaw clench, EEG' },
+        { n: '0', l: 'screens in the target design' },
+        { n: '2027', l: 'InVenture Prize entry' }
+      ],
+      bullets: [
+        'Co-inventing a hands-free physical-AI wheelchair for users with limited limb mobility, fusing eye tracking & jaw-clench input with BCI/EEG signals so riders steer by intent, not joystick; entering Georgia Tech\u2019s InVenture Prize 2027.',
+        'Drive the invention vision & lead hardware & electrical integration (sensor mounting, motor-drive interface, power), taking the team from a screen-based prototype toward fully screen-free control.',
+        'Designing a background intent-recognition model (gaze, jaw clench, EEG) & autonomous steering that navigates around obstacles with minimal rider input, adapting the intent-recognition approach from ACE exoskeleton work.'
+      ],
+      tools: ['Eye tracking', 'Jaw-clench (EMG) input', 'BCI / EEG', 'Intent recognition', 'Autonomous navigation', 'Motor drive & power electronics'],
+      media: []
+    },
+    {
       id: 'aakruti', logo: 'assets/img/logos/dassault.png',
       group: 'Competitions',
       title: 'AirShield: Solar-Powered Air-Filtration Wall',
@@ -256,7 +281,7 @@ window.PORTFOLIO = {
       cat: 'Wearable Robotics, Team Leadership',
       context: 'WEAR@GT is a new Georgia Tech wearable-robotics club. New members onboard by building open-source prosthetic hands and arms in mentor-led groups; in spring 2027 the club builds a lower-body exoskeleton for a competition modeled on the University of Michigan\u2019s ACE challenge.',
       why: 'A new club\u2019s first build sets its habits. Shared purchasing, safety rules and a \u201cmodify it, don\u2019t just copy it\u201d standard turn 45 new members into engineers ready to take on a real exoskeleton competition.',
-      roleText: 'As a founding member, I lead the 45-member mechanical subteam. This fall I ran the onboarding prosthetics build; now I manage four mechanical subteams through the research and build phases of the spring 2027 ACE exoskeleton competition, after interviewing and selecting their leads.',
+      roleText: 'As a founding member, I lead the 45-member mechanical subteam. This fall I ran the onboarding prosthetics build and direct its EMG-controlled prosthetic hand, where surface EMG electrodes drive servo-actuated fingers; now I manage four mechanical subteams through the research and build phases of the spring 2027 ACE exoskeleton competition, after interviewing and selecting their leads.',
       result: '7 mentor-led groups building 6 prosthetic designs from one consolidated 38-item, ~$403 order, under clear safety and design rules; four mechanical subteams staffed with screened leads and moving into ACE research.',
       metrics: [
         { n: '45', l: 'members led' },
@@ -265,14 +290,16 @@ window.PORTFOLIO = {
         { n: '4', l: 'mechanical subteams for ACE 2027' }
       ],
       bullets: [
+        'Direct an EMG-controlled prosthetic hand build (in progress): a surface EMG sensor & skin electrodes feed Arduino threshold control driving 2 servos that actuate 5 tendon-driven fingers, with a roadmap to multi-gesture intent classification.',
         'Lead a 45-member mechanical subteam through a 1-month onboarding build: 7 mentor-led groups building 6 open-source prosthetic hand & arm designs, with staged deliverables from design brief to final presentation.',
         'Consolidated 7 groups\u2019 BOMs into one 38-item, ~$403 club order: merged duplicates into shared bulk buys, added overlooked parts (e.g., EMG electrode cables, servo battery), & capped group budgets at $90 (1 documented exception).',
         'Set electrical safety rules for the EMG build (battery-only power while electrodes are on skin; separate servo supply with common ground) & required every team to modify at least one design part in CAD, not just copy it.',
         'Run weekly team meetings (agendas, slides, published minutes), organized an Onshape CAD workshop, & analyzed the UMich ACE 2027 lower-body exoskeleton rulebook (scoring, weight handicaps, deadlines) to brief the team for the spring 2027 effort.',
         'Manage 4 mechanical subteams for the ACE exoskeleton (Structures & Joints, Actuation & Transmission, Attachment & Fit, Materials & Manufacturing); interviewed and screened subteam leads for leadership & technical qualities.',
-        'Leading the mechanical team through the ACE research phase, assigning research tasks across the subteams ahead of the spring design and build.'
+        'Leading research & planning for the ACE exoskeleton, assigning winter-break R&D across the subteams (assisted joint, actuation, & weight budget vs. competition handicaps) ahead of the spring design and build.',
+        'Scoping intent recognition for exoskeleton control with the Electrical, Software, & Human Factors teams, so the device reads the wearer\u2019s motion intent from body signals rather than manual switching.'
       ],
-      tools: ['Onshape', 'EMG sensors', 'Servos', 'BOM consolidation', 'Interviewing & team building'],
+      tools: ['Surface EMG & electrodes', 'Arduino threshold control', 'Servo & tendon actuation', 'Onshape', 'BOM consolidation', 'Interviewing & team building'],
       media: []
     },
     {
@@ -474,18 +501,31 @@ window.PORTFOLIO = {
       media: [{ src: 'assets/img/visionx-glasses.jpg', cap: 'Smart-glasses CAD concept' }]
     },
     {
-      id: 'gripper', logo: 'assets/img/logos/northwood.png', group: 'Earlier Work', title: 'Pneumatic Soft Robotic Gripper for Fruit Harvesting', org: 'Northwood School, Lake Placid', date: '2024',
-      cat: 'Soft Robotics, Biomimicry', badge: 'Lake Placid STEM Exhibition',
+      id: 'gripper', group: 'Earlier Work', title: 'Pneumatic Soft Robotic Gripper for Fruit Harvesting', role: 'Independent project (solo)', org: 'Self-directed project', date: '2024',
+      cat: 'Soft Robotics, Force Sensing, Biomimicry', badge: '100% pick success, zero damage',
       context: 'Rigid grippers bruise soft produce; small farms need compliant, low-cost alternatives, a problem I saw in rural Indian agriculture.',
-      roleText: 'Self-led, end-to-end: CAD, 3D-printed molds, silicone casting, Arduino-controlled pneumatics, and testing.',
-      result: 'Exhibited at the Lake Placid STEM Exhibition; earned Advanced STEM college credit.',
-      tools: ['CAD', '3D printing', 'Silicone casting', 'Arduino', 'Pneumatics'],
+      why: 'Picking delicate fruit is still mostly done by hand because rigid grippers crush it. A soft gripper that senses contact and force can handle a banana and a pineapple with the same hardware.',
+      roleText: 'Self-led, end-to-end: Fusion 360 CAD, custom 3D-printed molds (Bambu Studio), 2-part Ecoflex silicone casting of every finger, Arduino-controlled pneumatics, force and touch sensing, and testing.',
+      result: '100% pick success with zero damage across apples, bananas, oranges and pineapples. Demoed live to about 100\u2013200 people at a town hall exhibition.',
+      metrics: [
+        { n: '100%', l: 'pick success' },
+        { n: '0', l: 'fruit damaged' },
+        { n: '5', l: 'soft pneumatic fingers' },
+        { n: '4', l: 'fruit types: apple, banana, orange, pineapple' }
+      ],
+      bullets: [
+        'Designed & built a 5-finger pneumatic soft robotic gripper for gentle fruit harvesting, from Fusion 360 CAD to custom 3D-printed molds (Bambu Studio) & 2-part Ecoflex silicone casting of every actuator, all self-made.',
+        'Closed a force-feedback loop on an Arduino Uno: Tekscan FlexiForce (FSR) readings stop solenoid-valve inflation at a set force limit, while a capacitive touch sensor confirms contact before grip.',
+        'Integrated an air pump, solenoid valves, & suction-cup assist; achieved 100% pick success with zero damage across apples, bananas, oranges, & pineapples spanning sizes, shapes, & skin firmness.',
+        'Presented the working prototype with live picking demos to 100\u2013200 attendees at a town hall exhibition, explaining soft-actuation design & sensing trade-offs.'
+      ],
+      tools: ['Fusion 360', 'Bambu Studio', 'Ecoflex silicone casting', 'Arduino Uno', 'Tekscan FlexiForce (FSR)', 'Capacitive touch sensor', 'Air pump & solenoid valves', 'Suction cup'],
       media: [
-        { src: 'assets/img/gripper-cad.jpg', cap: 'Four-finger CAD model' },
+        { src: 'assets/img/gripper-cad.jpg', cap: 'Gripper CAD model' },
         { src: 'assets/img/gripper-proto.png', cap: 'Working prototype with pumps & valves' },
         { src: 'assets/img/gripper-test.jpg', cap: 'Testing the Arduino control circuit' },
         { src: 'assets/img/gripper-slice.jpg', cap: 'Slicing the 3D-printed base' },
-        { src: 'assets/img/gripper-expo.jpg', cap: 'Presenting at the STEM exhibition' }
+        { src: 'assets/img/gripper-expo.jpg', cap: 'Presenting at the town hall exhibition' }
       ]
     },
     {
@@ -602,7 +642,7 @@ window.PORTFOLIO = {
     { h: 'Supply Chain & Analytics', items: ['Demand planning', 'Forecasting & backtesting', 'Inventory optimization (newsvendor)', 'Sourcing strategy', 'Monte Carlo simulation', 'ERP / WMS, RFID, GS1', 'Excel (PivotTables), Power BI', 'Python (Pandas), SQL (in progress)', 'KPI dashboards, Figma, D3/Recharts'] },
     { h: 'Process Excellence', items: ['Lean Six Sigma (DMAIC)', 'Continuous improvement', 'Bottleneck analysis', 'SOPs & standard work', 'Process simulation', 'Metrology (Zeiss COMET)'] },
     { h: 'CAD / CAM / CAE & Fabrication', items: ['Siemens NX, Simcenter 3D (FEA)', 'Tecnomatix', 'SolidWorks (Flow Simulation)', 'Fusion 360, Onshape', 'RobotStudio', 'CNC, EDM machining', 'ABB arc welding', 'Laser cutting, 3D printing'] },
-    { h: 'Robotics & Electronics', items: ['ABB RAPID', 'KUKA / Fanuc cobots', 'Otto AMRs', 'NVIDIA Isaac Sim', 'Rhino / Grasshopper (learning)', 'Arduino (C++)', 'Soldering & wiring', 'Pneumatics'] },
+    { h: 'Robotics & Electronics', items: ['ABB RAPID', 'KUKA / Fanuc cobots', 'Otto AMRs', 'NVIDIA Isaac Sim', 'Rhino / Grasshopper (learning)', 'Arduino (C++)', 'Soldering & wiring', 'Pneumatics', 'Soft robotics (silicone casting)', 'Force & tactile sensing (FSR, capacitive)', 'Surface EMG & servo/tendon actuation', 'Eye tracking & BCI/EEG (in progress)'] },
     { h: 'Programming & AI', items: ['Python, Java, C++', 'MATLAB / Simulink', 'M & G-code', 'Next.js / React / TypeScript', 'Node.js, REST APIs, MongoDB', 'Vercel', 'Cursor, Claude Code', 'Wispr Flow'] },
     { h: 'Languages', items: ['English', 'Spanish', 'Hindi', 'Mandarin', 'Konkani'] }
   ],
